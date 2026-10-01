@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300">
+  <rect width="600" height="300" fill="#FFFFFF"/>
+  <rect x="50" y="40" width="500" height="60" fill="#FFCC00" rx="10"/>
+  <rect x="50" y="100" width="500" height="70" fill="#E52421" rx="10"/>
+  <text x="300" y="120" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="76" font-style="italic" fill="#1A1A1A">Suvinil</text>
+  <text x="300" y="230" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="28" fill="#8B0000" font-style="italic">Renovar é fácil. É só querer.</text>
+</svg>

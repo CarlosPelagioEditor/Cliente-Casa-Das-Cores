@@ -1,0 +1,6 @@
+{
+  "name": "Casa das Cores - Tintas e Acabamentos em Jaguaruna",
+  "description": "Site oficial da Casa das Cores em Jaguaruna - SC. Tintas imobiliárias, vernizes, texturas, impermeabilizantes e acessórios das marcas Suvinil, Coral, Anjo e Eucatex com o melhor preço e orçamento via WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

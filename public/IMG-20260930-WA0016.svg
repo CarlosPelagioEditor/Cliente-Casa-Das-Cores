@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 300 300">
+  <circle cx="150" cy="150" r="140" fill="#FFCE00" stroke="#E69500" stroke-width="6"/>
+  <path d="M87 114 L71 114 L71 85 L90 85 L90 102 Z" fill="#32373D"/>
+  <path d="M150 28 L232 98 L217 114 L150 56 L83 114 L68 98 Z" fill="#454B52"/>
+  <path d="M166 65 Q228 65 238 126 L184 172 Z" fill="#0288D1"/>
+  <path d="M184 172 L233 131 Q235 174 196 200 Z" fill="#D32F2F"/>
+  <path d="M184 172 L196 200 Q150 236 116 230 L166 172 Z" fill="#F57C00"/>
+  <path d="M74 122 L166 122 L166 172 L116 230 Q70 200 74 122 Z" fill="#388E3C"/>
+  <rect x="122" y="78" width="22" height="22" rx="3" fill="#2E3338"/>
+  <rect x="148" y="78" width="22" height="22" rx="3" fill="#2E3338"/>
+  <rect x="122" y="104" width="22" height="22" rx="3" fill="#2E3338"/>
+  <rect x="148" y="104" width="22" height="22" rx="3" fill="#2E3338"/>
+  <text x="150" y="204" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="32" fill="#CC141D" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round">CASA DAS CORES</text>
+  <text x="150" y="204" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="32" fill="#CC141D">CASA DAS CORES</text>
+  <path d="M48 224 Q150 216 252 224 Z" fill="#CC141D"/>
+  <text x="150" y="238" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="12.5" fill="#1E2022">O melhor e mais barato para você.</text>
+  <text x="150" y="262" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="18" fill="#C4131B">Fone: 3624 - 1961</text>
+</svg>
