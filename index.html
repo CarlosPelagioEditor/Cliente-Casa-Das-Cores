@@ -5,19 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Casa das Cores - Tintas e Acabamentos em Jaguaruna - SC</title>
   <meta name="description" content="Site oficial da Casa das Cores em Jaguaruna - SC. O melhor e mais barato para você em tintas e acabamentos. Peça seu orçamento via WhatsApp!">
-  <meta property="og:title" content="Casa das Cores - Tintas e Acabamentos em Jaguaruna">
-  <meta property="og:description" content="O melhor e mais barato para você em tintas e acabamentos. Suvinil, Coral, Anjo, Eucatex e muito mais.">
-  <meta property="og:type" content="website">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Firebase Web SDK v9 (Compat Mode) -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <!-- Firebase Web SDK v9 Compat via CDN -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
   <style>
     :root {
@@ -25,11 +22,10 @@
       --primary-dark: #D97706;
       --primary-light: #FEF3C7;
       --secondary: #DC2626;
-      --secondary-dark: #B91C1C;
       --dark: #0F172A;
-      --dark-card: #1E293B;
       --gray-light: #F8FAFC;
       --gray-border: #E2E8F0;
+      --text: #1E293B;
       --text-muted: #64748B;
       --whatsapp: #25D366;
       --whatsapp-dark: #1EBE5D;
@@ -43,17 +39,16 @@
 
     body {
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      color: #1E293B;
-      background-color: #F8FAFC;
+      color: var(--text);
+      background-color: var(--gray-light);
       line-height: 1.6;
-      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
     h1, h2, h3, h4, h5, .font-heading {
       font-family: 'Outfit', sans-serif;
+      color: var(--dark);
       font-weight: 800;
-      color: #0F172A;
     }
 
     a {
@@ -64,11 +59,13 @@
     button {
       font-family: inherit;
       cursor: pointer;
+      border: none;
+      outline: none;
     }
 
     .container {
       width: 100%;
-      max-width: 1240px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 1.25rem;
     }
@@ -80,7 +77,6 @@
       font-size: 0.8rem;
       font-weight: 800;
       padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
 
     .topbar-content {
@@ -98,13 +94,6 @@
       flex-wrap: wrap;
     }
 
-    .topbar-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    /* BOTAO LOGIN PROPRIETARIO */
     .btn-auth-top {
       display: inline-flex;
       align-items: center;
@@ -115,145 +104,150 @@
       font-weight: 800;
       padding: 0.4rem 0.85rem;
       border-radius: 9999px;
-      border: 1px solid rgba(255,255,255,0.2);
       transition: all 0.2s;
     }
 
     .btn-auth-top:hover {
       background: #1E293B;
       transform: translateY(-1px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
 
     .btn-auth-top.logged-in {
       background: #047857;
       color: #ECFDF5;
-      border-color: #34D399;
     }
 
     /* HEADER */
     header {
       background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(8px);
       position: sticky;
       top: 0;
       z-index: 40;
       border-bottom: 1px solid var(--gray-border);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
 
     .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 80px;
+      height: 76px;
     }
 
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 0.85rem;
+      gap: 0.75rem;
     }
 
-    .logo-img {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      object-fit: cover;
+    .logo-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
       background: #FEF3C7;
       border: 2px solid #F59E0B;
-      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 10px rgba(245, 158, 11, 0.2);
     }
 
     .logo-text h1 {
-      font-size: 1.55rem;
+      font-size: 1.45rem;
       line-height: 1;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
     }
 
     .logo-text span {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 800;
       color: var(--secondary);
       text-transform: uppercase;
       letter-spacing: 0.08em;
       display: block;
-      margin-top: 0.2rem;
+      margin-top: 0.15rem;
     }
 
-    nav {
+    .header-actions {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 0.75rem;
     }
 
-    nav a {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #334155;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: var(--primary-dark);
-    }
-
-    .btn-header-whats {
+    .social-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark));
-      color: #FFFFFF;
-      font-size: 0.85rem;
+      gap: 0.4rem;
+      padding: 0.55rem 0.85rem;
+      border-radius: 10px;
+      font-size: 0.8rem;
       font-weight: 800;
-      padding: 0.65rem 1.15rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+      background: #F8FAFC;
+      border: 1px solid var(--gray-border);
+      color: #334155;
       transition: all 0.2s;
     }
 
-    .btn-header-whats:hover {
+    .social-btn:hover {
+      background: var(--dark);
+      color: #FFFFFF;
+      border-color: var(--dark);
+    }
+
+    .btn-whats-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark));
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 0.6rem 1.1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+      transition: transform 0.2s;
+    }
+
+    .btn-whats-header:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
     }
 
     /* HERO */
     .hero {
-      position: relative;
       padding: 4.5rem 0 5rem;
-      background: radial-gradient(circle at 10% 20%, rgba(254, 243, 199, 0.6) 0%, rgba(248, 250, 252, 0.9) 60%), #FFFFFF;
+      background: radial-gradient(circle at 10% 20%, #FEF3C7 0%, #FFFFFF 60%);
       border-bottom: 1px solid var(--gray-border);
-      overflow: hidden;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 3.5rem;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
       align-items: center;
     }
 
-    .hero-tag {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.4rem;
       background: #FEF3C7;
       color: #92400E;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 800;
-      padding: 0.35rem 0.85rem;
+      padding: 0.3rem 0.8rem;
       border-radius: 9999px;
       border: 1px solid #FDE68A;
-      margin-bottom: 1rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
     }
 
     .hero h2 {
-      font-size: 3.25rem;
+      font-size: 3rem;
       line-height: 1.1;
       letter-spacing: -0.03em;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
 
     .hero h2 span {
@@ -263,632 +257,888 @@
     }
 
     .hero-desc {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: #475569;
-      margin-bottom: 2rem;
-      max-width: 580px;
+      margin-bottom: 1.75rem;
+      max-width: 540px;
     }
 
-    .hero-actions {
+    .hero-btns {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.85rem;
       flex-wrap: wrap;
     }
 
-    .btn-hero-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: linear-gradient(135deg, #F59E0B, #D97706);
-      color: #0F172A;
-      font-size: 1rem;
-      font-weight: 900;
-      padding: 0.9rem 1.75rem;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
-      transition: all 0.2s;
-    }
-
-    .btn-hero-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(245, 158, 11, 0.45);
-    }
-
-    .btn-hero-secondary {
+    .btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: #FFFFFF;
-      color: #1E293B;
+      background: linear-gradient(135deg, #F59E0B, #D97706);
+      color: #0F172A;
       font-size: 0.95rem;
-      font-weight: 800;
-      padding: 0.85rem 1.4rem;
-      border-radius: 16px;
-      border: 1px solid var(--gray-border);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      font-weight: 900;
+      padding: 0.85rem 1.6rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
       transition: all 0.2s;
     }
 
-    .btn-hero-secondary:hover {
-      background: #F1F5F9;
-      border-color: #CBD5E1;
+    .btn-primary:hover {
+      transform: translateY(-2px);
     }
 
     .hero-card {
       background: #FFFFFF;
-      border-radius: 28px;
+      border-radius: 24px;
       padding: 2rem;
       border: 2px solid #FDE68A;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-      position: relative;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
     }
 
-    .hero-badge-pill {
-      position: absolute;
-      top: -14px;
-      right: 24px;
-      background: #0F172A;
-      color: #FBBF24;
-      font-size: 0.72rem;
-      font-weight: 800;
-      padding: 0.4rem 0.9rem;
-      border-radius: 9999px;
-      text-transform: uppercase;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-
-    .hero-features {
-      display: flex;
-      flex-direction: column;
-      gap: 1.15rem;
-      margin-top: 1rem;
-    }
-
-    .feature-item {
+    .card-item {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
-      padding: 0.85rem 1rem;
-      background: #F8FAFC;
-      border-radius: 16px;
-      border: 1px solid #F1F5F9;
+      gap: 0.85rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #F1F5F9;
     }
 
-    .feature-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
+    .card-item:last-child {
+      border-bottom: none;
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
       background: #FEF3C7;
-      color: #D97706;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.25rem;
-      shrink-0: 0;
     }
 
-    .feature-text strong {
-      display: block;
-      font-size: 0.9rem;
-      color: #0F172A;
-    }
-
-    .feature-text span {
-      font-size: 0.78rem;
-      color: #64748B;
-    }
-
-    /* BRANDS BANNER */
-    .brands-section {
-      padding: 2.5rem 0;
+    /* MARCAS */
+    .brands {
+      padding: 2.25rem 0;
       background: #FFFFFF;
       border-bottom: 1px solid var(--gray-border);
-    }
-
-    .brands-title {
       text-align: center;
-      font-size: 0.8rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #94A3B8;
-      margin-bottom: 1.5rem;
     }
 
-    .brands-grid {
+    .brands-wrap {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 3rem;
+      gap: 2rem;
       flex-wrap: wrap;
     }
 
-    .brand-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.4rem;
-      background: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      border-radius: 16px;
+    .brand-item {
+      font-size: 1.15rem;
       font-weight: 900;
-      font-size: 1.05rem;
-      color: #334155;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      color: #475569;
+      padding: 0.4rem 1.1rem;
+      background: #F8FAFC;
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
     }
 
-    .brand-pill.suvinil { color: #E11D48; }
-    .brand-pill.coral { color: #2563EB; }
-    .brand-pill.anjo { color: #D97706; }
-    .brand-pill.eucatex { color: #059669; }
-
-    /* SEÇÃO CATÁLOGO DE CORES */
-    .section-colors {
-      padding: 5rem 0;
+    /* SEÇÃO DE CORES */
+    .colors-section {
+      padding: 4.5rem 0;
       background: #F8FAFC;
     }
 
-    .section-header {
+    .section-title {
       text-align: center;
-      max-width: 720px;
-      margin: 0 auto 3rem;
+      margin-bottom: 2.5rem;
     }
 
-    .badge-section {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: #FEF3C7;
-      color: #92400E;
-      font-size: 0.78rem;
-      font-weight: 800;
-      padding: 0.35rem 0.9rem;
-      border-radius: 9999px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.75rem;
+    .section-title h3 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
     }
 
-    .section-header h2 {
-      font-size: 2.6rem;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
-    }
-
-    .section-header p {
-      font-size: 1rem;
-      color: #64748B;
-    }
-
-    /* ABAS DE MARCAS */
     .brand-tabs {
       display: flex;
       justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
+      gap: 0.6rem;
+      margin-bottom: 1.75rem;
       flex-wrap: wrap;
     }
 
     .tab-btn {
-      padding: 0.75rem 1.5rem;
-      border-radius: 16px;
-      font-weight: 900;
-      font-size: 0.95rem;
+      padding: 0.6rem 1.35rem;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.9rem;
       background: #FFFFFF;
       color: #475569;
-      border: 1px solid #CBD5E1;
+      border: 1px solid var(--gray-border);
       transition: all 0.2s;
-    }
-
-    .tab-btn:hover {
-      background: #F1F5F9;
-      border-color: #94A3B8;
     }
 
     .tab-btn.active {
-      background: #0F172A;
+      background: var(--dark);
       color: #FFFFFF;
-      border-color: #0F172A;
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.2);
+      border-color: var(--dark);
     }
 
-    /* FILTROS & BUSCA */
-    .filter-bar {
-      background: #FFFFFF;
-      padding: 1.25rem;
-      border-radius: 20px;
-      border: 1px solid var(--gray-border);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    .colors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
       margin-bottom: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .filter-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .search-box {
-      position: relative;
-      flex: 1;
-      min-width: 260px;
-      max-width: 420px;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 0.65rem 1rem 0.65rem 2.4rem;
-      border-radius: 12px;
-      border: 1px solid #CBD5E1;
-      font-size: 0.88rem;
-      font-family: inherit;
-      outline: none;
-    }
-
-    .search-box input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 0.85rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #94A3B8;
-      font-size: 0.9rem;
-    }
-
-    .tone-pills {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      overflow-x: auto;
-      padding-bottom: 0.35rem;
-    }
-
-    .tone-btn {
-      padding: 0.45rem 0.9rem;
-      border-radius: 10px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      white-space: nowrap;
-      background: #F1F5F9;
-      color: #475569;
-      border: none;
-      transition: all 0.15s;
-    }
-
-    .tone-btn:hover {
-      background: #E2E8F0;
-    }
-
-    .tone-btn.active {
-      background: #F59E0B;
-      color: #0F172A;
-      font-weight: 800;
-    }
-
-    /* CARROSSEL DE CORES */
-    .carousel-wrap {
-      position: relative;
-      margin-bottom: 2.5rem;
-    }
-
-    .carousel-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .carousel-btns {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .btn-nav-carousel {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #FFFFFF;
-      color: #0F172A;
-      border: 1px solid #CBD5E1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-      transition: all 0.2s;
-    }
-
-    .btn-nav-carousel:hover {
-      background: #FEF3C7;
-      border-color: #F59E0B;
-      color: #B45309;
-    }
-
-    .color-carousel {
-      display: flex;
-      gap: 1rem;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      padding: 0.5rem 0.2rem 1.25rem;
     }
 
     .color-card {
-      flex: 0 0 200px;
       background: #FFFFFF;
       border: 1px solid var(--gray-border);
-      border-radius: 18px;
+      border-radius: 16px;
       padding: 0.85rem;
-      text-align: left;
+      cursor: pointer;
       transition: all 0.2s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
 
-    .color-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.08);
-      border-color: #CBD5E1;
+    .color-card:hover, .color-card.active {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border-color: #F59E0B;
     }
 
-    .color-card.active {
-      border: 2px solid #0F172A;
-      background: #0F172A;
-      color: #FFFFFF;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
-    }
-
-    .swatch-box {
+    .swatch {
       width: 100%;
-      height: 110px;
-      border-radius: 12px;
+      height: 90px;
+      border-radius: 10px;
+      margin-bottom: 0.6rem;
       border: 1px solid rgba(0,0,0,0.08);
-      position: relative;
-      margin-bottom: 0.75rem;
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
     }
 
-    .swatch-hex {
-      position: absolute;
-      bottom: 6px;
-      right: 6px;
-      background: rgba(0,0,0,0.7);
-      color: #FFFFFF;
-      font-size: 0.65rem;
-      font-family: monospace;
-      padding: 0.2rem 0.4rem;
-      border-radius: 6px;
-    }
-
-    .color-card-title {
-      font-size: 0.88rem;
+    .color-name {
+      font-size: 0.85rem;
       font-weight: 800;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .color-card-code {
-      font-size: 0.75rem;
-      font-family: monospace;
-      color: #64748B;
-      margin-top: 0.2rem;
-    }
-
-    .color-card.active .color-card-code {
-      color: #FBBF24;
-    }
-
-    /* CARD DE DESTAQUE DA COR SELECIONADA */
-    .color-preview-card {
-      background: #FFFFFF;
-      border-radius: 28px;
-      padding: 2.25rem;
-      border: 2px solid var(--gray-border);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .preview-box-large {
-      width: 100%;
-      aspect-ratio: 1;
-      border-radius: 24px;
-      border: 6px solid #FFFFFF;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .preview-hex-badge {
-      background: rgba(0,0,0,0.75);
-      color: #FFFFFF;
-      font-family: monospace;
-      font-size: 0.85rem;
-      font-weight: 800;
-      padding: 0.4rem 0.8rem;
-      border-radius: 9999px;
-      backdrop-filter: blur(4px);
-    }
-
-    .preview-info h3 {
-      font-size: 2.2rem;
-      line-height: 1.1;
-      margin-bottom: 0.4rem;
-    }
-
-    .preview-meta {
-      font-size: 0.9rem;
-      font-weight: 800;
-      color: #D97706;
-      margin-bottom: 1rem;
-    }
-
-    .preview-desc {
-      font-size: 0.95rem;
-      color: #475569;
-      margin-bottom: 1.5rem;
-    }
-
-    .finishes-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .finish-box {
-      background: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      border-radius: 12px;
-      padding: 0.75rem;
-    }
-
-    .finish-box strong {
-      display: block;
-      font-size: 0.82rem;
-      color: #0F172A;
-    }
-
-    .finish-box span {
+    .color-code {
       font-size: 0.72rem;
-      color: #64748B;
+      font-family: monospace;
+      color: var(--text-muted);
     }
 
-    .btn-order-color {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark));
-      color: #FFFFFF;
-      font-size: 0.95rem;
-      font-weight: 900;
-      padding: 0.95rem 1.85rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
-      transition: all 0.2s;
-    }
-
-    .btn-order-color:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
-    }
-
-    /* SEÇÃO SOBRE & CONTATOS */
-    .about-section {
-      padding: 5rem 0;
+    /* CONTATO E LOCALIZAÇÃO */
+    .contact-section {
+      padding: 4.5rem 0;
       background: #FFFFFF;
       border-top: 1px solid var(--gray-border);
     }
 
-    .about-grid {
+    .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3.5rem;
+      gap: 3rem;
       align-items: center;
     }
 
-    .contact-card {
+    .contact-box {
       background: #F8FAFC;
       border: 1px solid var(--gray-border);
-      border-radius: 24px;
-      padding: 2rem;
+      border-radius: 20px;
+      padding: 1.75rem;
     }
 
-    .contact-card h4 {
-      font-size: 1.35rem;
+    .contact-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
       margin-bottom: 1.25rem;
     }
 
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
-      margin-bottom: 1.15rem;
-      font-size: 0.95rem;
-    }
-
     .contact-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: #FEF3C7;
-      color: #B45309;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      shrink-0: 0;
-    }
-
-    .contact-text strong {
-      display: block;
-      color: #0F172A;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .contact-text span {
-      color: #475569;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.6rem 1rem;
-      border-radius: 12px;
-      background: #FFFFFF;
-      border: 1px solid #CBD5E1;
-      font-size: 0.82rem;
-      font-weight: 800;
-      color: #334155;
-      transition: all 0.2s;
-    }
-
-    .social-btn:hover {
-      background: #0F172A;
-      color: #FFFFFF;
-      border-color: #0F172A;
+      font-size: 1.3rem;
     }
 
     /* FOOTER */
     footer {
-      background: #0F172A;
+      background: var(--dark);
       color: #94A3B8;
-      padding: 3rem 0;
-      font-size: 0.88rem;
+      padding: 2.5rem 0;
+      font-size: 0.85rem;
+      text-align: center;
     }
 
-    .footer-content {
+    /* WHATSAPP FLUTUANTE */
+    .floating-whats {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 58px;
+      height: 58px;
+      background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark));
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      z-index: 90;
+      transition: transform 0.2s;
+    }
+
+    .floating-whats:hover {
+      transform: scale(1.08);
+    }
+
+    /* =========================================================================
+       PAINEL DE EDIÇÃO DO PROPRIETÁRIO (FLUTUANTE / ESCONDIDO POR PADRÃO)
+       ========================================================================= */
+    .admin-panel {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 360px;
+      max-width: calc(100vw - 48px);
+      background: #FFFFFF;
+      border-radius: 20px;
+      border: 2px solid #F59E0B;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      z-index: 100;
+      display: none; /* Escondido por padrão */
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .admin-panel.visible {
+      display: flex;
+    }
+
+    .admin-header {
+      background: var(--dark);
+      color: #FFFFFF;
+      padding: 0.85rem 1.15rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
     }
 
-    .foo
+    .admin-header h4 {
+      color: #FBBF24;
+      font-size: 0.9rem;
+    }
+
+    .admin-close {
+      background: transparent;
+      color: #94A3B8;
+      font-size: 1.1rem;
+    }
+
+    .admin-body {
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      max-height: 420px;
+      overflow-y: auto;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #475569;
+      margin-bottom: 0.25rem;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid #CBD5E1;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-family: inherit;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: #F59E0B;
+    }
+
+    .admin-footer {
+      padding: 0.85rem 1.15rem;
+      background: #F8FAFC;
+      border-top: 1px solid var(--gray-border);
+      text-align: right;
+    }
+
+    .btn-save {
+      background: linear-gradient(135deg, #F59E0B, #D97706);
+      color: #0F172A;
+      font-size: 0.85rem;
+      font-weight: 900;
+      padding: 0.6rem 1.25rem;
+      border-radius: 10px;
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 0.75rem 1.25rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-left: 4px solid #10B981;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      z-index: 120;
+      display: none;
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-actions .social-btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOAST DE NOTIFICAÇÃO -->
+  <div id="toast" class="toast">Mensagem de status</div>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container topbar-content">
+      <div class="topbar-info">
+        <span>📍 <span id="top-endereco">Rua Arno Silveira, 185 - Centro, Jaguaruna - SC</span></span>
+        <span>🕒 Seg a Sex: 08h às 18h | Sáb: 08h às 12h</span>
+      </div>
+      <div>
+        <button id="btn-auth-owner" class="btn-auth-top" onclick="loginGoogle()">
+          <span>🔑 Entrar como Proprietário</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-content">
+      <div class="logo-area">
+        <div class="logo-badge">🎨</div>
+        <div class="logo-text">
+          <h1>Casa das Cores</h1>
+          <span>Tintas e Acabamentos • Jaguaruna</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <a id="link-insta" href="https://instagram.com/casadascoresjaguaruna" target="_blank" rel="noopener noreferrer" class="social-btn">
+          📸 Instagram
+        </a>
+        <a id="link-face" href="https://facebook.com/casadascoresjaguaruna" target="_blank" rel="noopener noreferrer" class="social-btn">
+          👍 Facebook
+        </a>
+        <a id="link-header-whats" href="https://wa.me/554836241961" target="_blank" rel="noopener noreferrer" class="btn-whats-header">
+          💬 Pedir Orçamento
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge">⭐ O Melhor e Mais Barato da Cidade</div>
+        <h2>Tudo em <span>Tintas & Acabamentos</span> para sua Obra</h2>
+        <p id="store-desc" class="hero-desc">
+          A Casa das Cores é a sua parceira completa em Jaguaruna - SC. Oferecemos as melhores marcas com preços imbatíveis, atendimento qualificado e sistema tintométrico na hora.
+        </p>
+        <div class="hero-btns">
+          <a id="link-hero-whats" href="https://wa.me/554836241961" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            💬 Falar no WhatsApp
+          </a>
+          <a href="#cores" class="social-btn" style="padding: 0.85rem 1.4rem;">
+            🎨 Ver Cores
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="hero-card">
+          <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Destaques da Casa das Cores</h4>
+          <div class="card-item">
+            <div class="card-icon">🎨</div>
+            <div>
+              <strong>Sistema Tintométrico Computadorizado</strong>
+              <div style="font-size: 0.75rem; color: #64748B;">Sua cor exata manipulada em minutos</div>
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">🚚</div>
+            <div>
+              <strong>Entrega Rápida em Jaguaruna e Região</strong>
+              <div style="font-size: 0.75rem; color: #64748B;">Receba direto na sua obra ou reforma</div>
+            </div>
+          </div>
+          <div class="card-item">
+            <div class="card-icon">💰</div>
+            <div>
+              <strong>Preços Imbatíveis e Direto de Fábrica</strong>
+              <div style="font-size: 0.75rem; color: #64748B;">Economia garantida no seu orçamento</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARCAS -->
+  <section class="brands">
+    <div class="container">
+      <div class="brands-wrap">
+        <div class="brand-item" style="color: #E11D48;">Suvinil</div>
+        <div class="brand-item" style="color: #2563EB;">Coral</div>
+        <div class="brand-item" style="color: #D97706;">Anjo Tintas</div>
+        <div class="brand-item" style="color: #059669;">Eucatex</div>
+        <div class="brand-item">Atlas Pincéis</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO DE CORES -->
+  <section id="cores" class="colors-section">
+    <div class="container">
+      <div class="section-title">
+        <h3>Catálogo de Cores por Marca</h3>
+        <p style="color: #64748B; font-size: 0.95rem;">Clique em qualquer cor para solicitar a fórmula pronta no WhatsApp da loja.</p>
+      </div>
+
+      <div class="brand-tabs">
+        <button class="tab-btn active" onclick="filtrarMarca('Suvinil')">Suvinil</button>
+        <button class="tab-btn" onclick="filtrarMarca('Coral')">Coral</button>
+        <button class="tab-btn" onclick="filtrarMarca('Anjo')">Anjo Tintas</button>
+        <button class="tab-btn" onclick="filtrarMarca('Eucatex')">Eucatex</button>
+      </div>
+
+      <div class="colors-grid" id="colors-grid">
+        <!-- Renderizado dinamicamente -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO & LOCALIZAÇÃO -->
+  <section class="contact-section">
+    <div class="container contact-grid">
+      <div>
+        <h3 style="font-size: 2rem; margin-bottom: 0.75rem;">Visite nossa Loja em Jaguaruna</h3>
+        <p style="color: #64748B; margin-bottom: 1.5rem;">
+          Estamos prontos para atender você com assessoria técnica completa na escolha dos produtos ideais para sua pintura.
+        </p>
+
+        <div class="contact-box">
+          <div class="contact-line">
+            <span class="contact-icon">📍</span>
+            <div>
+              <strong>Endereço</strong>
+              <div id="card-endereco">Rua Arno Silveira, 185 - Centro, Jaguaruna - SC</div>
+            </div>
+          </div>
+          <div class="contact-line">
+            <span class="contact-icon">💬</span>
+            <div>
+              <strong>WhatsApp & Atendimento</strong>
+              <div id="card-whatsapp">(48) 3624-1961</div>
+            </div>
+          </div>
+          <div class="contact-line">
+            <span class="contact-icon">🕒</span>
+            <div>
+              <strong>Horário</strong>
+              <div>Seg a Sex: 08:00 às 18:00 | Sábado: 08:00 às 12:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="background: #FEF3C7; border: 2px dashed #F59E0B; border-radius: 20px; padding: 2.5rem; text-align: center;">
+          <h4 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Precisa de um Orçamento Rápido?</h4>
+          <p style="color: #92400E; font-size: 0.9rem; margin-bottom: 1.25rem;">
+            Envie sua metragem de parede ou lista de materiais diretamente para nossa equipe no WhatsApp!
+          </p>
+          <a id="link-direct-whats" href="https://wa.me/554836241961" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-flex;">
+            💬 Chamar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p><strong>Casa das Cores - Tintas e Acabamentos em Jaguaruna - SC</strong></p>
+      <p style="margin-top: 0.25rem;">© 2026 Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <a id="floating-whats" href="https://wa.me/554836241961" target="_blank" rel="noopener noreferrer" class="floating-whats" title="Conversar no WhatsApp">
+    💬
+  </a>
+
+  <!-- =========================================================================
+       PAINEL DE EDIÇÃO (ESCONDIDO POR PADRÃO, VISÍVEL AO LOGAR COMO PROPRIETÁRIO)
+       ========================================================================= -->
+  <div id="admin-panel" class="admin-panel">
+    <div class="admin-header">
+      <h4>⚙️ Painel de Edição da Loja</h4>
+      <button class="admin-close" onclick="fecharPainel()" title="Fechar">✕</button>
+    </div>
+    <div class="admin-body">
+      <div style="font-size: 0.72rem; color: #92400E; background: #FEF3C7; padding: 0.5rem; border-radius: 8px; font-weight: 700;">
+        Conectado ao Firestore (configuracoes/loja)
+      </div>
+
+      <div class="form-group">
+        <label for="input-whatsapp">WhatsApp (DDD + Número):</label>
+        <input type="text" id="input-whatsapp" placeholder="(48) 3624-1961">
+      </div>
+
+      <div class="form-group">
+        <label for="input-instagram">Instagram (Link completo ou @):</label>
+        <input type="text" id="input-instagram" placeholder="https://instagram.com/casadascoresjaguaruna">
+      </div>
+
+      <div class="form-group">
+        <label for="input-facebook">Facebook (Link completo):</label>
+        <input type="text" id="input-facebook" placeholder="https://facebook.com/casadascoresjaguaruna">
+      </div>
+
+      <div class="form-group">
+        <label for="input-endereco">Endereço:</label>
+        <input type="text" id="input-endereco" placeholder="Rua Arno Silveira, 185 - Centro, Jaguaruna - SC">
+      </div>
+
+      <div class="form-group">
+        <label for="input-descricao">Descrição da Loja:</label>
+        <textarea id="input-descricao" rows="3" placeholder="Texto de apresentação da loja..."></textarea>
+      </div>
+    </div>
+    <div class="admin-footer">
+      <button class="btn-save" onclick="salvarNoFirestore()">💾 Salvar Alterações</button>
+    </div>
+  </div>
+
+  <!-- SCRIPT FIREBASE + LÓGICA DO SITE -->
+  <script>
+    /* =========================================================================
+       CONFIGURAÇÃO OFICIAL DO FIREBASE (FORNECIDA PELO CLIENTE)
+       ========================================================================= */
+    const firebaseConfig = {
+      apiKey: "AIzaSyAJZ9w88QKJ9IkKwewwd1UhXXzo9lB-Qpg",
+      authDomain: "cliente-casa-das-cores.firebaseapp.com",
+      projectId: "cliente-casa-das-cores",
+      storageBucket: "cliente-casa-das-cores.firebasestorage.app",
+      messagingSenderId: "149903263600",
+      appId: "1:149903263600:web:fe87de950513a9971ef1b5",
+      measurementId: "G-4ETFJ8CM6L"
+    };
+
+    // Inicializa o Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    let usuarioLogado = null;
+
+    // E-mails autorizados para o painel de proprietário
+    const OWNER_EMAILS = [
+      "casadascoresjaguarunaadm@gmail.com",
+      "rcarlinhoso13h@gmail.com"
+    ];
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      if (!t) return;
+      t.innerText = msg;
+      t.style.display = "block";
+      setTimeout(() => { t.style.display = "none"; }, 3500);
+    }
+
+    function isOwner(email) {
+      if (!email) return false;
+      const em = email.toLowerCase().trim();
+      return OWNER_EMAILS.includes(em) || em.indexOf("casadascores") !== -1 || em.indexOf("carlinhos") !== -1;
+    }
+
+    /* =========================================================================
+       LOGIN DO GOOGLE
+       ========================================================================= */
+    function loginGoogle() {
+      if (usuarioLogado) {
+        auth.signOut().then(() => {
+          showToast("Você saiu da conta.");
+        }).catch((e) => {
+          showToast("Erro ao sair: " + e.message);
+        });
+      } else {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider)
+          .then((res) => {
+            showToast("Login realizado com sucesso!");
+          })
+          .catch((err) => {
+            console.warn("Erro no login:", err);
+            showToast("Falha no login Google: " + err.message);
+          });
+      }
+    }
+
+    // Monitora o estado da autenticação
+    auth.onAuthStateChanged((user) => {
+      usuarioLogado = user;
+      const btn = document.getElementById("btn-auth-owner");
+      const panel = document.getElementById("admin-panel");
+
+      if (user) {
+        if (btn) {
+          btn.classList.add("logged-in");
+          btn.innerHTML = `<span>👋 Sair (${user.displayName ? user.displayName.split(' ')[0] : 'Proprietário'})</span>`;
+        }
+
+        // Se for o e-mail do proprietário, exibe o painel de edição
+        if (isOwner(user.email)) {
+          if (panel) panel.classList.add("visible");
+          showToast("Painel de Edição do Proprietário aberto!");
+        } else {
+          if (panel) panel.classList.remove("visible");
+        }
+      } else {
+        if (btn) {
+          btn.classList.remove("logged-in");
+          btn.innerHTML = `<span>🔑 Entrar como Proprietário</span>`;
+        }
+        if (panel) panel.classList.remove("visible");
+      }
+    });
+
+    function fecharPainel() {
+      const panel = document.getElementById("admin-panel");
+      if (panel) panel.classList.remove("visible");
+    }
+
+    /* =========================================================================
+       SALVAR DADOS NO FIRESTORE (coleção: configuracoes, doc: loja)
+       ========================================================================= */
+    function salvarNoFirestore() {
+      if (!usuarioLogado || !isOwner(usuarioLogado.email)) {
+        showToast("Apenas o proprietário autorizado pode salvar dados!");
+        return;
+      }
+
+      const whatsapp = (document.getElementById("input-whatsapp").value || "").trim();
+      const instagram = (document.getElementById("input-instagram").value || "").trim();
+      const facebook = (document.getElementById("input-facebook").value || "").trim();
+      const endereco = (document.getElementById("input-endereco").value || "").trim();
+      const descricao = (document.getElementById("input-descricao").value || "").trim();
+
+      const dados = {
+        whatsapp: whatsapp || "(48) 3624-1961",
+        instagram: instagram || "https://instagram.com/casadascoresjaguaruna",
+        facebook: facebook || "https://facebook.com/casadascoresjaguaruna",
+        endereco: endereco || "Rua Arno Silveira, 185 - Centro, Jaguaruna - SC",
+        descricao: descricao || "A Casa das Cores é a sua parceira completa em tintas e acabamentos em Jaguaruna - SC.",
+        atualizadoEm: firebase.firestore.FieldValue.serverTimestamp(),
+        atualizadoPor: usuarioLogado.email
+      };
+
+      db.collection("configuracoes").doc("loja").set(dados, { merge: true })
+        .then(() => {
+          showToast("Dados salvos com sucesso no Firestore!");
+        })
+        .catch((error) => {
+          console.error("Erro Firestore:", error);
+          showToast("Erro ao salvar: " + error.message);
+        });
+    }
+
+    /* =========================================================================
+       CARREGAR DADOS EM TEMPO REAL DO FIRESTORE (onSnapshot)
+       ========================================================================= */
+    db.collection("configuracoes").doc("loja").onSnapshot((doc) => {
+      if (doc && doc.exists) {
+        atualizarTela(doc.data());
+      }
+    }, (err) => {
+      console.warn("Aviso Firestore:", err);
+    });
+
+    function atualizarTela(dados) {
+      if (!dados) return;
+
+      // WhatsApp
+      if (dados.whatsapp) {
+        const clean = dados.whatsapp.replace(/\D/g, "");
+        const url = "https://wa.me/" + (clean.indexOf("55") === 0 ? clean : "55" + clean);
+
+        const cardW = document.getElementById("card-whatsapp");
+        if (cardW) cardW.innerText = dados.whatsapp;
+
+        const headW = document.getElementById("link-header-whats");
+        if (headW) headW.href = url;
+
+        const heroW = document.getElementById("link-hero-whats");
+        if (heroW) heroW.href = url;
+
+        const dirW = document.getElementById("link-direct-whats");
+        if (dirW) dirW.href = url;
+
+        const floatW = document.getElementById("floating-whats");
+        if (floatW) floatW.href = url;
+
+        const inpW = document.getElementById("input-whatsapp");
+        if (inpW && !inpW.value) inpW.value = dados.whatsapp;
+      }
+
+      // Endereço
+      if (dados.endereco) {
+        const topE = document.getElementById("top-endereco");
+        if (topE) topE.innerText = dados.endereco;
+
+        const cardE = document.getElementById("card-endereco");
+        if (cardE) cardE.innerText = dados.endereco;
+
+        const inpE = document.getElementById("input-endereco");
+        if (inpE && !inpE.value) inpE.value = dados.endereco;
+      }
+
+      // Descrição
+      if (dados.descricao) {
+        const desc = document.getElementById("store-desc");
+        if (desc) desc.innerText = dados.descricao;
+
+        const inpD = document.getElementById("input-descricao");
+        if (inpD && !inpD.value) inpD.value = dados.descricao;
+      }
+
+      // Redes Sociais
+      if (dados.instagram) {
+        const url = dados.instagram.indexOf("http") === 0 ? dados.instagram : "https://instagram.com/" + dados.instagram.replace("@", "");
+        const linkI = document.getElementById("link-insta");
+        if (linkI) linkI.href = url;
+
+        const inpI = document.getElementById("input-instagram");
+        if (inpI && !inpI.value) inpI.value = dados.instagram;
+      }
+
+      if (dados.facebook) {
+        const url = dados.facebook.indexOf("http") === 0 ? dados.facebook : "https://facebook.com/" + dados.facebook;
+        const linkF = document.getElementById("link-face");
+        if (linkF) linkF.href = url;
+
+        const inpF = document.getElementById("input-facebook");
+        if (inpF && !inpF.value) inpF.value = dados.facebook;
+      }
+    }
+
+    /* =========================================================================
+       CATÁLOGO DE CORES DAS MARCAS
+       ========================================================================= */
+    const CORES = [
+      // SUVINIL
+      { nome: "Branco Neve", codigo: "SUV-B101", hex: "#F8F9FA", marca: "Suvinil" },
+      { nome: "Cinza Crômio", codigo: "SUV-CC303", hex: "#D7D8D6", marca: "Suvinil" },
+      { nome: "Broto de Feijão", codigo: "SUV-BF112", hex: "#E3DAC9", marca: "Suvinil" },
+      { nome: "Elefante", codigo: "SUV-EL210", hex: "#9E9D97", marca: "Suvinil" },
+      { nome: "Calopsita", codigo: "SUV-CP330", hex: "#E8DEC8", marca: "Suvinil" },
+      { nome: "Ovelha", codigo: "SUV-OV415", hex: "#D1C7BD", marca: "Suvinil" },
+      { nome: "Terracota Suvinil", codigo: "SUV-TC720", hex: "#BA5A3A", marca: "Suvinil" },
+      { nome: "Azul Petróleo", codigo: "SUV-AP880", hex: "#1A3644", marca: "Suvinil" },
+      { nome: "Papel Picado", codigo: "SUV-PP118", hex: "#DDD9D0", marca: "Suvinil" },
+
+      // CORAL
+      { nome: "Algodão Egípcio", codigo: "COR-AE202", hex: "#EDE4D4", marca: "Coral" },
+      { nome: "Azul Horizonte Sereno", codigo: "COR-AS505", hex: "#7A98A8", marca: "Coral" },
+      { nome: "Praça no Inverno", codigo: "COR-PI104", hex: "#C5C6C2", marca: "Coral" },
+      { nome: "Creme Escocês", codigo: "COR-CE208", hex: "#F2EBD9", marca: "Coral" },
+      { nome: "Canto da Floresta", codigo: "COR-CF314", hex: "#6B8068", marca: "Coral" },
+      { nome: "Rosa Mosqueta Coral", codigo: "COR-RM422", hex: "#D9A59B", marca: "Coral" },
+      { nome: "Mergulho Noturno", codigo: "COR-MN602", hex: "#1E2C3D", marca: "Coral" },
+      { nome: "Branco Puro", codigo: "COR-BP101", hex: "#FAFAFA", marca: "Coral" },
+
+      // ANJO
+      { nome: "Terracota Artesanal", codigo: "ANJ-TA606", hex: "#C06B4C", marca: "Anjo" },
+      { nome: "Grafite Nobre", codigo: "ANJ-GN808", hex: "#4A4E54", marca: "Anjo" },
+      { nome: "Palha Rústica", codigo: "ANJ-PR109", hex: "#E4D3B8", marca: "Anjo" },
+      { nome: "Marfim Tropical", codigo: "ANJ-MT204", hex: "#F7E9CE", marca: "Anjo" },
+      { nome: "Verde Pantanal", codigo: "ANJ-VP310", hex: "#4D6652", marca: "Anjo" },
+      { nome: "Concreto Real", codigo: "ANJ-CR412", hex: "#A3A5A4", marca: "Anjo" },
+      { nome: "Azul Oceânico", codigo: "ANJ-AO550", hex: "#2A4765", marca: "Anjo" },
+
+      // EUCATEX
+      { nome: "Areia Molhada", codigo: "EUC-AM404", hex: "#D5C4A1", marca: "Eucatex" },
+      { nome: "Verde Eucalipto", codigo: "EUC-VE707", hex: "#5E7D6A", marca: "Eucatex" },
+      { nome: "Seda Suave", codigo: "EUC-SS101", hex: "#F3EFE6", marca: "Eucatex" },
+      { nome: "Camurça Nobre", codigo: "EUC-CN205", hex: "#BCA993", marca: "Eucatex" },
+      { nome: "Gelo Ártico", codigo: "EUC-GA303", hex: "#EAECEE", marca: "Eucatex" },
+      { nome: "Mostarda Quente", codigo: "EUC-MQ418", hex: "#D69E2E", marca: "Eucatex" },
+      { nome: "Rubi Clássico", codigo: "EUC-RC512", hex: "#872337", marca: "Eucatex" }
+    ];
+
+    let marcaAtiva = "Suvinil";
+
+    function filtrarMarca(marca) {
+      marcaAtiva = marca;
+      document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.innerText.indexOf(marca) !== -1);
+      });
+      renderizarCores();
+    }
+
+    function pedirCor(nome, codigo, marca) {
+      const cardW = document.getElementById("card-whatsapp");
+      const whatsAtual = (cardW ? cardW.innerText.replace(/\D/g, "") : "") || "554836241961";
+      const clean = whatsAtual.indexOf("55") === 0 ? whatsAtual : "55" + whatsAtual;
+      const msg = `Olá Casa das Cores! Gostei muito da cor "${nome}" (${marca} - Cód: ${codigo}) que vi no site. Gostaria de solicitar um orçamento!`;
+      window.open(`https://wa.me/${clean}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function renderizarCores() {
+      const grid = document.getElementById("colors-grid");
+      if (!grid) return;
+
+      const lista = CORES.filter(c => c.marca.toLowerCase() === marcaAtiva.toLowerCase());
+      grid.innerHTML = lista.map(c => `
+        <div class="color-card" onclick="pedirCor('${c.nome}', '${c.codigo}', '${c.marca}')">
+          <div class="swatch" style="background-color: ${c.hex};"></div>
+          <div class="color-name">${c.nome}</div>
+          <div class="color-code">${c.codigo} • ${c.hex}</div>
+          <div style="font-size: 0.72rem; color: #D97706; font-weight: 800; margin-top: 0.4rem;">
+            Pedir no WhatsApp 💬
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // Inicia renderização
+    document.addEventListener("DOMContentLoaded", () => {
+      filtrarMarca("Suvinil");
+    });
+  </script>
+</body>
+</html>
