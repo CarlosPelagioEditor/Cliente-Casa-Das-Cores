@@ -10,15 +10,32 @@
   <meta property="og:description" content="O melhor e mais barato para você em tintas e acabamentos. Suvinil, Coral, Anjo, Eucatex e muito mais.">
   <meta property="og:type" content="website">
 
+  <!-- Escudo global contra erros cross-origin de CDN -->
+  <script>
+    window.addEventListener('error', function(e) {
+      if (e.message === 'Script error.' || (e.filename && e.filename.indexOf('gstatic') !== -1)) {
+        e.preventDefault();
+        e.stopPropagation();
+        return true;
+      }
+    }, true);
+
+    window.onerror = function(msg, url) {
+      if (msg === 'Script error.' || (url && url.indexOf('gstatic') !== -1)) {
+        return true;
+      }
+    };
+  </script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Firebase Web SDK v9 Compat via CDN -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js" crossorigin="anonymous"></script>
 
   <style>
     :root {
@@ -145,16 +162,13 @@
       gap: 0.75rem;
     }
 
-    .logo-badge {
-      width: 46px;
-      height: 46px;
+    .logo-img {
+      width: 48px;
+      height: 48px;
       border-radius: 12px;
+      object-fit: cover;
       background: #FEF3C7;
       border: 2px solid #F59E0B;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
       box-shadow: 0 4px 10px rgba(245, 158, 11, 0.2);
     }
 
@@ -512,7 +526,7 @@
       border: 2px solid #F59E0B;
       box-shadow: 0 15px 40px rgba(0,0,0,0.25);
       z-index: 100;
-      display: none; /* Escondido por padrão */
+      display: none;
       flex-direction: column;
       overflow: hidden;
     }
@@ -640,343 +654,7 @@
   <header>
     <div class="container header-content">
       <div class="logo-area">
-        <div class="logo-badge">🎨</div>
-        <div class="logo-text">
-          <h1>Casa das Cores</h1>
-          <span>Tintas e Acabamentos • Jaguaruna</span>
-        </div>
-      </div>
-
-      <div class="header-actions">
-        <a id="link-insta" href="https://instagram.com/casadascoresjaguaruna" target="_blank" rel="noopener noreferrer" class="social-btn">
-          📸 Instagram
-        </a>
-        <a id="link-face" href="https://facebook.com/casadascoresjaguaruna" target="_blank" rel="noopener noreferrer" class="social-btn">
-          👍 Facebook
-        </a>
-        <a id="link-header-whats" href="https://wa.me/554836241961" target="_blank" rel="noopener noreferrer" class="btn-whats-header">
-          💬 Pedir Orçamento
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="hero-badge">⭐ O Melhor e Mais Barato da Cidade</div>
-        <h2>Tudo em <span>Tintas & Acabamentos</span> para sua Obra</h2>
-        <p id="store-desc" class="hero-desc">
-          A Casa das Cores é a sua parceira completa em Jaguaruna - SC. Oferecemos as melhores marcas com preços imbatíveis, atendimento qualificado e sistema tintométrico na hora.
-        </p>
-        <div class="hero-btns">
-          <a id="link-hero-whats" href="https://wa.me/554836241961" target="_blank" rel="noopener noreferrer" class="btn-primary">
-            💬 Falar no WhatsApp
-          </a>
-          <a href="#cores" class="social-btn" style="padding: 0.85rem 1.4rem;">
-            🎨 Ver Cores
-          </a>
-        </div>
-      </div>
-
-      <div>
-        <div class="hero-card">
-          <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Destaques da Casa das Cores</h4>
-          <div class="card-item">
-            <div class="card-icon">🎨</div>
-            <div>
-              <strong>Sistema Tintométrico Computadorizado</strong>
-              <div style="font-size: 0.75rem; color: #64748B;">Sua cor exata manipulada em minutos</div>
-            </div>
-          </div>
-          <div class="card-item">
-            <div class="card-icon">🚚</div>
-            <div>
-              <strong>Entrega Rápida em Jaguaruna e Região</strong>
-              <div style="font-size: 0.75rem; color: #64748B;">Receba direto na sua obra ou reforma</div>
-            </div>
-          </div>
-          <div class="card-item">
-            <div class="card-icon">💰</div>
-            <div>
-              <strong>Preços Imbatíveis e Direto de Fábrica</strong>
-              <div style="font-size: 0.75rem; color: #64748B;">Economia garantida no seu orçamento</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MARCAS -->
-  <section class="brands">
-    <div class="container">
-      <div class="brands-wrap">
-        <div class="brand-item" style="color: #E11D48;">Suvinil</div>
-        <div class="brand-item" style="color: #2563EB;">Coral</div>
-        <div class="brand-item" style="color: #D97706;">Anjo Tintas</div>
-        <div class="brand-item" style="color: #059669;">Eucatex</div>
-        <div class="brand-item">Atlas Pincéis</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CATÁLOGO DE CORES -->
-  <section id="cores" class="colors-section">
-    <div class="container">
-      <div class="section-title">
-        <h3>Catálogo de Cores por Marca</h3>
-        <p style="color: #64748B; font-size: 0.95rem;">Clique em qualquer cor para solicitar a fórmula pronta no WhatsApp da loja.</p>
-      </div>
-
-      <div class="brand-tabs">
-        <button class="tab-btn active" onclick="filtrarMarca('Suvinil')">Suvinil</button>
-        <button class="tab-btn" onclick="filtrarMarca('Coral')">Coral</button>
-        <button class="tab-btn" onclick="filtrarMarca('Anjo')">Anjo Tintas</button>
-        <button class="tab-btn" onclick="filtrarMarca('Eucatex')">Eucatex</button>
-      </div>
-
-      <div class="colors-grid" id="colors-grid">
-        <!-- Renderizado dinamicamente -->
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTATO & LOCALIZAÇÃO -->
-  <section class="contact-section">
-    <div class="container contact-grid">
-      <div>
-        <h3 style="font-size: 2rem; margin-bottom: 0.75rem;">Visite nossa Loja em Jaguaruna</h3>
-        <p style="color: #64748B; margin-bottom: 1.5rem;">
-          Estamos prontos para atender você com assessoria técnica completa na escolha dos produtos ideais para sua pintura.
-        </p>
-
-        <div class="contact-box">
-          <div class="contact-line">
-            <span class="contact-icon">📍</span>
-            <div>
-              <strong>Endereço</strong>
-              <div id="card-endereco">Rua Arno Silveira, 185 - Centro, Jaguaruna - SC</div>
-            </div>
-          </div>
-          <div class="contact-line">
-            <span class="contact-icon">💬</span>
-            <div>
-              <strong>WhatsApp & Atendimento</strong>
-              <div id="card-whatsapp">(48) 3624-1961</div>
-            </div>
-          </div>
-          <div class="contact-line">
-            <span class="contact-icon">🕒</span>
-            <div>
-              <strong>Horário</strong>
-              <div>Seg a Sex: 08:00 às 18:00 | Sábado: 08:00 às 12:00</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div style="background: #FEF3C7; border: 2px dashed #F59E0B; border-radius: 20px; padding: 2.5rem; text-align: center;">
-   s: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .contact-box {
-      background: #F8FAFC;
-      border: 1px solid var(--gray-border);
-      border-radius: 20px;
-      padding: 1.75rem;
-    }
-
-    .contact-line {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .contact-icon {
-      font-size: 1.3rem;
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--dark);
-      color: #94A3B8;
-      padding: 2.5rem 0;
-      font-size: 0.85rem;
-      text-align: center;
-    }
-
-    /* WHATSAPP FLUTUANTE */
-    .floating-whats {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 58px;
-      height: 58px;
-      background: linear-gradient(135deg, var(--whatsapp), var(--whatsapp-dark));
-      color: #FFFFFF;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
-      z-index: 90;
-      transition: transform 0.2s;
-    }
-
-    .floating-whats:hover {
-      transform: scale(1.08);
-    }
-
-    /* =========================================================================
-       PAINEL DE EDIÇÃO DO PROPRIETÁRIO (FLUTUANTE / ESCONDIDO POR PADRÃO)
-       ========================================================================= */
-    .admin-panel {
-      position: fixed;
-      bottom: 24px;
-      left: 24px;
-      width: 360px;
-      max-width: calc(100vw - 48px);
-      background: #FFFFFF;
-      border-radius: 20px;
-      border: 2px solid #F59E0B;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-      z-index: 100;
-      display: none; /* Escondido por padrão */
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .admin-panel.visible {
-      display: flex;
-    }
-
-    .admin-header {
-      background: var(--dark);
-      color: #FFFFFF;
-      padding: 0.85rem 1.15rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .admin-header h4 {
-      color: #FBBF24;
-      font-size: 0.9rem;
-    }
-
-    .admin-close {
-      background: transparent;
-      color: #94A3B8;
-      font-size: 1.1rem;
-    }
-
-    .admin-body {
-      padding: 1.15rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      max-height: 420px;
-      overflow-y: auto;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: #475569;
-      margin-bottom: 0.25rem;
-    }
-
-    .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 0.55rem 0.75rem;
-      border: 1px solid #CBD5E1;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-family: inherit;
-    }
-
-    .form-group input:focus, .form-group textarea:focus {
-      outline: none;
-      border-color: #F59E0B;
-    }
-
-    .admin-footer {
-      padding: 0.85rem 1.15rem;
-      background: #F8FAFC;
-      border-top: 1px solid var(--gray-border);
-      text-align: right;
-    }
-
-    .btn-save {
-      background: linear-gradient(135deg, #F59E0B, #D97706);
-      color: #0F172A;
-      font-size: 0.85rem;
-      font-weight: 900;
-      padding: 0.6rem 1.25rem;
-      border-radius: 10px;
-    }
-
-    /* TOAST */
-    .toast {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #0F172A;
-      color: #FFFFFF;
-      padding: 0.75rem 1.25rem;
-      border-radius: 12px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border-left: 4px solid #10B981;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      z-index: 120;
-      display: none;
-    }
-
-    @media (max-width: 800px) {
-      .hero-grid, .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .header-actions .social-btn {
-        display: none;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- TOAST DE NOTIFICAÇÃO -->
-  <div id="toast" class="toast">Mensagem de status</div>
-
-  <!-- TOPBAR -->
-  <div class="topbar">
-    <div class="container topbar-content">
-      <div class="topbar-info">
-        <span>📍 <span id="top-endereco">Rua Arno Silveira, 185 - Centro, Jaguaruna - SC</span></span>
-        <span>🕒 Seg a Sex: 08h às 18h | Sáb: 08h às 12h</span>
-      </div>
-      <div>
-        <button id="btn-auth-owner" class="btn-auth-top" onclick="loginGoogle()">
-          <span>🔑 Entrar como Proprietário</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- HEADER -->
-  <header>
-    <div class="container header-content">
-      <div class="logo-area">
-        <div class="logo-badge">🎨</div>
+        <img src="/IMG-20260930-WA0016.svg" onerror="this.src='/favicon.svg'" alt="Casa das Cores" class="logo-img">
         <div class="logo-text">
           <h1>Casa das Cores</h1>
           <span>Tintas e Acabamentos • Jaguaruna</span>
@@ -1198,12 +876,8 @@
       measurementId: "G-4ETFJ8CM6L"
     };
 
-    // Inicializa o Firebase
-    firebase.initializeApp(firebaseConfig);
-
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-
+    let auth = null;
+    let db = null;
     let usuarioLogado = null;
 
     // E-mails autorizados para o painel de proprietário
@@ -1213,11 +887,15 @@
     ];
 
     function showToast(msg) {
-      const t = document.getElementById("toast");
-      if (!t) return;
-      t.innerText = msg;
-      t.style.display = "block";
-      setTimeout(() => { t.style.display = "none"; }, 3500);
+      try {
+        const t = document.getElementById("toast");
+        if (!t) return;
+        t.innerText = msg;
+        t.style.display = "block";
+        setTimeout(() => { if (t) t.style.display = "none"; }, 3500);
+      } catch (e) {
+        console.log(msg);
+      }
     }
 
     function isOwner(email) {
@@ -1226,10 +904,75 @@
       return OWNER_EMAILS.includes(em) || em.indexOf("casadascores") !== -1 || em.indexOf("carlinhos") !== -1;
     }
 
+    // Inicialização segura do Firebase
+    function initFirebase() {
+      try {
+        if (typeof firebase !== 'undefined' && firebase.initializeApp) {
+          if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+          }
+          auth = firebase.auth();
+          db = firebase.firestore();
+
+          // Monitora o estado da autenticação
+          auth.onAuthStateChanged((user) => {
+            usuarioLogado = user;
+            const btn = document.getElementById("btn-auth-owner");
+            const panel = document.getElementById("admin-panel");
+
+            if (user) {
+              if (btn) {
+                btn.classList.add("logged-in");
+                btn.innerHTML = `<span>👋 Sair (${user.displayName ? user.displayName.split(' ')[0] : 'Proprietário'})</span>`;
+              }
+
+              // Se for o e-mail do proprietário, exibe o painel de edição
+              if (isOwner(user.email)) {
+                if (panel) panel.classList.add("visible");
+                showToast("Painel de Edição do Proprietário aberto!");
+              } else {
+                if (panel) panel.classList.remove("visible");
+              }
+            } else {
+              if (btn) {
+                btn.classList.remove("logged-in");
+                btn.innerHTML = `<span>🔑 Entrar como Proprietário</span>`;
+              }
+              if (panel) panel.classList.remove("visible");
+            }
+          }, (authErr) => {
+            console.warn("Aviso Auth Firebase:", authErr);
+          });
+
+          // Carregar dados em tempo real do Firestore
+          try {
+            db.collection("configuracoes").doc("loja").onSnapshot((doc) => {
+              if (doc && doc.exists) {
+                atualizarTela(doc.data());
+              }
+            }, (err) => {
+              console.warn("Aviso Firestore:", err);
+            });
+          } catch (e) {
+            console.warn("Erro ao configurar snapshot Firestore:", e);
+          }
+        } else {
+          setTimeout(initFirebase, 250);
+        }
+      } catch (err) {
+        console.warn("Aviso na inicialização do Firebase:", err);
+      }
+    }
+
     /* =========================================================================
        LOGIN DO GOOGLE
        ========================================================================= */
     function loginGoogle() {
+      if (!auth) {
+        showToast("Firebase Auth carregando. Aguarde um instante...");
+        return;
+      }
+
       if (usuarioLogado) {
         auth.signOut().then(() => {
           showToast("Você saiu da conta.");
@@ -1249,34 +992,6 @@
       }
     }
 
-    // Monitora o estado da autenticação
-    auth.onAuthStateChanged((user) => {
-      usuarioLogado = user;
-      const btn = document.getElementById("btn-auth-owner");
-      const panel = document.getElementById("admin-panel");
-
-      if (user) {
-        if (btn) {
-          btn.classList.add("logged-in");
-          btn.innerHTML = `<span>👋 Sair (${user.displayName ? user.displayName.split(' ')[0] : 'Proprietário'})</span>`;
-        }
-
-        // Se for o e-mail do proprietário, exibe o painel de edição
-        if (isOwner(user.email)) {
-          if (panel) panel.classList.add("visible");
-          showToast("Painel de Edição do Proprietário aberto!");
-        } else {
-          if (panel) panel.classList.remove("visible");
-        }
-      } else {
-        if (btn) {
-          btn.classList.remove("logged-in");
-          btn.innerHTML = `<span>🔑 Entrar como Proprietário</span>`;
-        }
-        if (panel) panel.classList.remove("visible");
-      }
-    });
-
     function fecharPainel() {
       const panel = document.getElementById("admin-panel");
       if (panel) panel.classList.remove("visible");
@@ -1288,6 +1003,11 @@
     function salvarNoFirestore() {
       if (!usuarioLogado || !isOwner(usuarioLogado.email)) {
         showToast("Apenas o proprietário autorizado pode salvar dados!");
+        return;
+      }
+
+      if (!db) {
+        showToast("Serviço do Firestore indisponível.");
         return;
       }
 
@@ -1316,17 +1036,6 @@
           showToast("Erro ao salvar: " + error.message);
         });
     }
-
-    /* =========================================================================
-       CARREGAR DADOS EM TEMPO REAL DO FIRESTORE (onSnapshot)
-       ========================================================================= */
-    db.collection("configuracoes").doc("loja").onSnapshot((doc) => {
-      if (doc && doc.exists) {
-        atualizarTela(doc.data());
-      }
-    }, (err) => {
-      console.warn("Aviso Firestore:", err);
-    });
 
     function atualizarTela(dados) {
       if (!dados) return;
@@ -1475,9 +1184,10 @@
       `).join("");
     }
 
-    // Inicia renderização
+    // Inicia renderização e Firebase
     document.addEventListener("DOMContentLoaded", () => {
       filtrarMarca("Suvinil");
+      initFirebase();
     });
   </script>
 </body>
