@@ -1,6 +1,10 @@
 import { StoreConfig, GalleryItem, ColorSwatch, PromotionItem, StoreBrand } from '../types';
 
 export const OWNER_EMAIL = 'casadascoresjaguarunaadm@gmail.com';
+export const OWNER_EMAILS = [
+  'casadascoresjaguarunaadm@gmail.com',
+  'rcarlinhoso13h@gmail.com'
+];
 
 export const INITIAL_BRANDS: StoreBrand[] = [
   {

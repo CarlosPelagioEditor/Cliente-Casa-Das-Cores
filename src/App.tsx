@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { StoreConfig, UserSession } from './types';
-import { INITIAL_STORE_CONFIG, OWNER_EMAIL } from './data/initialData';
+import { INITIAL_STORE_CONFIG, OWNER_EMAIL, OWNER_EMAILS } from './data/initialData';
 import { generateSingleHtml } from './utils/generateSingleHtml';
 
 // Componentes
@@ -61,12 +61,32 @@ export default function App() {
 
   const [authModalOpen, setAuthModalOpen] = useState(false);
 
-  // O painel de edição só é acessível e visível se o e-mail logado for EXATAMENTE o do proprietário
+  // O painel de edição só é acessível e visível se o e-mail logado for EXATAMENTE um dos proprietários autorizados
   const isOwner = Boolean(
     currentUser.isLoggedIn &&
     currentUser.email &&
-    currentUser.email.trim().toLowerCase() === OWNER_EMAIL.toLowerCase()
+    OWNER_EMAILS.some(e => e.toLowerCase() === currentUser.email?.trim().toLowerCase())
   );
+
+  // Sincronização opcional com Firestore e Auth do Firebase
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined' && (window as any).firebase) {
+        const fb = (window as any).firebase;
+        if (fb.apps && fb.apps.length > 0) {
+          const auth = fb.auth();
+          const unsubscribe = auth.onAuthStateChanged((user: any) => {
+            if (user && user.email) {
+              handleLogin(user.email, user.displayName || user.email.split('@')[0], user.photoURL);
+            }
+          });
+          return () => unsubscribe();
+        }
+      }
+    } catch (e) {
+      console.warn('Firebase init check:', e);
+    }
+  }, []);
 
   // Salvar alterações de configuração
   const handleSaveConfig = (newConfig: StoreConfig) => {
@@ -77,25 +97,27 @@ export default function App() {
       console.error('Erro ao persistir no localStorage:', e);
     }
 
-    /* ========================================================================= */
-    /* FIREBASE FIRESTORE SYNC HOOK - ONDE SALVAREMOS OS DADOS                   */
-    /* ========================================================================= */
-    /*
-      // Para sincronizar no Firebase Firestore:
-      // import { getFirestore, doc, setDoc } from "firebase/firestore";
-      // const db = getFirestore();
-      // setDoc(doc(db, "loja", "configuracoes"), newConfig, { merge: true });
-    */
-    /* ========================================================================= */
+    try {
+      if (typeof window !== 'undefined' && (window as any).firebase) {
+        const fb = (window as any).firebase;
+        if (fb.apps && fb.apps.length > 0) {
+          const db = fb.firestore();
+          db.collection('configuracoes').doc('loja').set(newConfig, { merge: true })
+            .catch((err: any) => console.warn('Aviso ao sincronizar Firestore:', err?.message));
+        }
+      }
+    } catch (e) {
+      // Ignora silenciosamente se o Firestore não estiver ativo no momento
+    }
   };
 
-  // Efetuar Login (Simulação com Google)
-  const handleLogin = (email: string, name?: string) => {
+  // Efetuar Login
+  const handleLogin = (email: string, name?: string, photoUrl?: string | null) => {
     const user: UserSession = {
       isLoggedIn: true,
       email: email.trim().toLowerCase(),
       name: name || email.split('@')[0],
-      photoUrl: null
+      photoUrl: photoUrl || null
     };
     setCurrentUser(user);
     try {
