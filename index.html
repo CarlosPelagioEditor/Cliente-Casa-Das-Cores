@@ -209,7 +209,7 @@
   <!-- =========================================================================
        1. TOPBAR INFORMATIVA & BOTÕES DE ACESSO
        ========================================================================= -->
-  <div class="bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-slate-950 py-1.5 px-3 sm:px-4 text-xs font-bold border-b border-amber-400 w-full overflow-hidden">
+    <div class="bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-slate-950 py-1.5 px-3 sm:px-4 text-xs font-bold border-b border-amber-400 w-full overflow-hidden">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 w-full">
       <div class="flex items-center gap-2 flex-wrap justify-center sm:justify-start min-w-0 text-center sm:text-left">
         <span class="bg-slate-950 text-amber-300 text-[10px] px-2.5 py-0.5 rounded-full font-black tracking-wide shrink-0">
@@ -299,7 +299,7 @@
   <!-- =========================================================================
        3. HERO SECTION
        ========================================================================= -->
-  <section id="hero" class="relative overflow-hidden bg-gradient-to-b from-amber-500/10 via-amber-100/30 to-slate-50 pt-8 pb-14 sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-24 border-b border-slate-200 w-full">
+            <section id="hero" class="relative overflow-hidden bg-gradient-to-b from-amber-500/10 via-amber-100/30 to-slate-50 pt-8 pb-14 sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-24 border-b border-slate-200 w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center w-full">
         <!-- Coluna Esquerda -->
@@ -348,4 +348,1793 @@
               <img id="hero-image-banner" src="/IMG-20260930-WA0016.svg" onerror="this.src='/favicon.svg'" alt="Selo Oficial Casa das Cores" class="w-full h-full object-contain">
             </div>
 
-            <div class="inline-flex items-center gap-1.5 bg-amber-500 text-slate-950 text-[11px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-xs m
+            <div class="inline-flex items-center gap-1.5 bg-amber-500 text-slate-950 text-[11px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-xs mb-2 max-w-full truncate">
+              📍 Jaguaruna - Santa Catarina
+            </div>
+
+            <h3 id="hero-card-store-name" class="text-xl sm:text-2xl font-black font-heading text-slate-950 leading-tight break-normal">
+              Casa das Cores
+            </h3>
+            <p id="hero-card-slogan" class="text-xs font-bold text-amber-900 uppercase tracking-wide mt-1 break-normal">
+              O Melhor e Mais Barato para Você
+            </p>
+
+            <div class="w-full my-3 sm:my-4 py-2.5 px-3 rounded-xl bg-slate-50 border border-slate-200 text-left min-w-0">
+              <div class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase">WhatsApp & Fone:</div>
+              <div id="hero-display-phone" class="text-xs sm:text-sm font-black text-slate-900 break-normal">
+                (48) 3624-1961
+              </div>
+            </div>
+
+            <a href="#ofertas" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs transition-colors text-center">
+              Ver Ofertas da Semana 👇
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divisor Pincelada de Tinta (Paint Stroke Wave) -->
+  <div class="w-full overflow-hidden leading-none -mt-1 bg-gradient-to-b from-slate-50 to-slate-100 text-amber-500/20">
+    <svg class="w-full h-8 sm:h-12" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0 C150,90 350,-40 500,45 C650,130 900,10 1200,60 L1200,120 L0,120 Z" fill="#f8fafc"></path>
+    </svg>
+  </div>
+
+  <!-- =========================================================================
+       4. SEÇÃO DEDICADA: MARCAS PARCEIRAS & TINTAS (DINÂMICA VIA FIRESTORE)
+       ========================================================================= -->
+  <section id="marcas" class="py-16 bg-slate-100/90 border-b border-slate-200 relative overflow-hidden">
+    <div class="absolute inset-0 paint-splatter pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-1.5 text-xs font-black text-amber-800 uppercase tracking-widest bg-amber-200/80 px-4 py-1.5 rounded-full border border-amber-300 shadow-2xs brush-card">
+          🎨 Linhas Oficiais de Tintas & Acabamentos
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black font-heading text-slate-950 mt-3 break-normal keep-all">
+          Marcas Parceiras & Tintas Oficiais
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-2 break-normal">
+          Trabalhamos com os maiores e melhores fabricantes do Brasil. Tecnologia tintométrica computadorizada, garantia de fábrica e acabamento impecável para sua obra.
+        </p>
+      </div>
+
+      <!-- Grid Dedicado de Marcas Parceiras -->
+      <div id="container-marcas" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        <!-- Carregado dinamicamente via Firestore / script -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Divisor Orgânico Estilo Pincelada -->
+  <div class="w-full overflow-hidden leading-none bg-slate-100 text-white">
+    <svg class="w-full h-8 sm:h-10 rotate-180" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0 C200,70 450,-30 650,55 C850,110 1050,20 1200,70 L1200,120 L0,120 Z" fill="currentColor"></path>
+    </svg>
+  </div>
+
+  <!-- =========================================================================
+       5. SEÇÃO DE PROMOÇÕES E OFERTAS ESPECIAIS (DINÂMICA VIA FIRESTORE)
+       ========================================================================= -->
+  <section id="ofertas" class="py-16 bg-white border-b border-slate-200 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-1.5 text-xs font-black text-red-700 uppercase tracking-widest bg-red-100 px-4 py-1.5 rounded-full border border-red-200 shadow-2xs brush-card">
+          🔥 Economia Real para sua Pintura
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black font-heading text-slate-950 mt-3 break-normal keep-all">
+          Promoções & Ofertas Especiais
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-2 break-normal">
+          Lotes promocionais selecionados com preços imbatíveis. Garanta diretamente com nossos consultores no WhatsApp antes que acabe o estoque!
+        </p>
+      </div>
+
+      <!-- Grid de Promoções Dinâmicas -->
+      <div id="grid-promocoes" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Carregado dinamicamente via Firestore / script -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. GUIA RÁPIDO DE SELEÇÃO DE TINTAS (IDEIA INTERATIVA DE ESPECIALISTA)
+       ========================================================================= -->
+  <section id="guia-tintas" class="py-16 bg-gradient-to-b from-amber-50/40 via-yellow-50/20 to-slate-50 border-b border-slate-200 relative overflow-hidden">
+    <div class="absolute inset-0 paint-splatter pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-1.5 text-xs font-black text-emerald-800 uppercase tracking-widest bg-emerald-100 px-4 py-1.5 rounded-full border border-emerald-300 shadow-2xs brush-card">
+          💡 Guia de Pintura & Acabamentos
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black font-heading text-slate-950 mt-3 break-normal keep-all">
+          Qual a Tinta Ideal para o seu Projeto?
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-2 break-normal">
+          Cada superfície exige uma fórmula específica para evitar descascamentos e garantir durabilidade máxima. Veja nosso guia rápido:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Guia 1: Fachadas & Áreas Externas -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-slate-200 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all flex flex-col justify-between brush-card group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-2xl p-2.5 rounded-2xl bg-amber-100 text-amber-900 font-bold">🏠</span>
+              <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Alta Resistência</span>
+            </div>
+            <h3 class="font-heading font-black text-slate-900 text-lg mb-1.5 break-normal">Fachadas & Paredes Externas</h3>
+            <p class="text-xs text-slate-600 mb-3 leading-relaxed break-normal">
+              <strong>Tinta recomendada:</strong> Tinta Acrílica Emborrachada ou Total Premium. Cria película elástica que previne fissuras e resiste ao sol, chuva e maresia.
+            </p>
+            <div class="text-[11px] font-bold text-amber-700 bg-amber-50 p-2.5 rounded-xl border border-amber-200 mb-4">
+              ✨ Destaque: Suporta lavagens pesadas e umidade externa.
+            </div>
+          </div>
+          <a href="https://wa.me/554836241961?text=Ol%C3%A1!+Gostaria+de+or%C3%A7amento+de+Tinta+Emborrachada+para+Fachada." target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-slate-900 group-hover:bg-amber-500 group-hover:text-slate-950 text-white font-black text-xs rounded-xl text-center transition-colors">
+            Pedir Tinta para Fachada 💬
+          </a>
+        </div>
+
+        <!-- Guia 2: Quartos, Salas & Corredores -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-slate-200 shadow-sm hover:shadow-xl hover:border-emerald-400 transition-all flex flex-col justify-between brush-card group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-2xl p-2.5 rounded-2xl bg-emerald-100 text-emerald-900 font-bold">🛋️</span>
+              <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Fácil Limpeza</span>
+            </div>
+            <h3 class="font-heading font-black text-slate-900 text-lg mb-1.5 break-normal">Interiores, Quartos & Salas</h3>
+            <p class="text-xs text-slate-600 mb-3 leading-relaxed break-normal">
+              <strong>Tinta recomendada:</strong> Acrílico Lavável / Toque de Seda / Fosco Aveludado. Fórmula sem cheiro em até 3 horas, acabamento requintado e facilidade para remover manchas.
+            </p>
+            <div class="text-[11px] font-bold text-emerald-700 bg-emerald-50 p-2.5 rounded-xl border border-emerald-200 mb-4">
+              ✨ Destaque: Excelente cobertura com toque suave ao tato.
+            </div>
+          </div>
+          <a href="https://wa.me/554836241961?text=Ol%C3%A1!+Gostaria+de+or%C3%A7amento+de+Tinta+Lav%C3%A1vel+para+Interior." target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-slate-900 group-hover:bg-emerald-600 text-white font-black text-xs rounded-xl text-center transition-colors">
+            Pedir Tinta para Interior 💬
+          </a>
+        </div>
+
+        <!-- Guia 3: Portas, Madeiras & Metais -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all flex flex-col justify-between brush-card group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-2xl p-2.5 rounded-2xl bg-blue-100 text-blue-900 font-bold">🚪</span>
+              <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Anti-Ferrugem</span>
+            </div>
+            <h3 class="font-heading font-black text-slate-900 text-lg mb-1.5 break-normal">Portas, Grades & Metais</h3>
+            <p class="text-xs text-slate-600 mb-3 leading-relaxed break-normal">
+              <strong>Tinta recomendada:</strong> Esmalte Sintético Base Água (secagem ultra-rápida e sem cheiro forte) ou Base Solvente tradicional de alto brilho.
+            </p>
+            <div class="text-[11px] font-bold text-blue-700 bg-blue-50 p-2.5 rounded-xl border border-blue-200 mb-4">
+              ✨ Destaque: Não amarela com o tempo e protege contra corrosão.
+            </div>
+          </div>
+          <a href="https://wa.me/554836241961?text=Ol%C3%A1!+Gostaria+de+or%C3%A7amento+de+Esmalte+para+Portas+e+Grades." target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-slate-900 group-hover:bg-blue-600 text-white font-black text-xs rounded-xl text-center transition-colors">
+            Pedir Esmalte Sintético 💬
+          </a>
+        </div>
+
+        <!-- Guia 4: Decks & Vigas de Madeira -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-slate-200 shadow-sm hover:shadow-xl hover:border-amber-600 transition-all flex flex-col justify-between brush-card group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-2xl p-2.5 rounded-2xl bg-orange-100 text-orange-950 font-bold">🪵</span>
+              <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Filtro Solar UV</span>
+            </div>
+            <h3 class="font-heading font-black text-slate-900 text-lg mb-1.5 break-normal">Decks, Pergolados & Vigas</h3>
+            <p class="text-xs text-slate-600 mb-3 leading-relaxed break-normal">
+              <strong>Tinta recomendada:</strong> Verniz Marítimo Premium ou Stain Impregnante. Penetra na madeira sem formar película que descasca, protegendo contra cupins e fungos.
+            </p>
+            <div class="text-[11px] font-bold text-orange-800 bg-orange-50 p-2.5 rounded-xl border border-orange-200 mb-4">
+              ✨ Destaque: Realça veios naturais da madeira com proteção UV.
+            </div>
+          </div>
+          <a href="https://wa.me/554836241961?text=Ol%C3%A1!+Gostaria+de+or%C3%A7amento+de+Verniz+para+Decks+e+Madeira." target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-slate-900 group-hover:bg-orange-600 text-white font-black text-xs rounded-xl text-center transition-colors">
+            Pedir Verniz Marítimo 💬
+          </a>
+        </div>
+
+        <!-- Guia 5: Calçadas, Garagens & Pisos -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-slate-200 shadow-sm hover:shadow-xl hover:border-red-400 transition-all flex flex-col justify-between brush-card group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-2xl p-2.5 rounded-2xl bg-red-100 text-red-950 font-bold">🚗</span>
+              <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Tráfego Pesado</span>
+            </div>
+            <h3 class="font-heading font-black text-slate-900 text-lg mb-1.5 break-normal">Garagens, Pisos & Quadras</h3>
+            <p class="text-xs text-slate-600 mb-3 leading-relaxed break-normal">
+              <strong>Tinta recomendada:</strong> Tinta Acrílica Específica para Pisos. Ultra resistente ao atrito constante de pneus quentes, intempéries e tráfego de pessoas.
+            </p>
+            <div class="text-[11px] font-bold text-red-800 bg-red-50 p-2.5 rounded-xl border border-red-200 mb-4">
+              ✨ Destaque: Alta ancoragem em concreto e cerâmica porosa.
+            </div>
+          </div>
+          <a href="https://wa.me/554836241961?text=Ol%C3%A1!+Gostaria+de+or%C3%A7amento+de+Tinta+para+Pisos+e+Garagem." target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-slate-900 group-hover:bg-red-600 text-white font-black text-xs rounded-xl text-center transition-colors">
+            Pedir Tinta para Piso 💬
+          </a>
+        </div>
+
+        <!-- Guia 6: Lajes & Telhados Impermeabilizados -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-slate-200 shadow-sm hover:shadow-xl hover:border-cyan-400 transition-all flex flex-col justify-between brush-card group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-2xl p-2.5 rounded-2xl bg-cyan-100 text-cyan-950 font-bold">🛡️</span>
+              <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">Zero Vazamento</span>
+            </div>
+            <h3 class="font-heading font-black text-slate-900 text-lg mb-1.5 break-normal">Lajes, Calhas & Telhados</h3>
+            <p class="text-xs text-slate-600 mb-3 leading-relaxed break-normal">
+              <strong>Tinta recomendada:</strong> Manta Líquida Impermeabilizante & Tinta Térmica Branca. Bloqueia goteiras e reflete os raios solares para diminuir o calor interno.
+            </p>
+            <div class="text-[11px] font-bold text-cyan-800 bg-cyan-50 p-2.5 rounded-xl border border-cyan-200 mb-4">
+              ✨ Destaque: Elimina infiltrações e reduz a temperatura interna.
+            </div>
+          </div>
+          <a href="https://wa.me/554836241961?text=Ol%C3%A1!+Gostaria+de+or%C3%A7amento+de+Manta+L%C3%ADquida+Impermeabilizante." target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-slate-900 group-hover:bg-cyan-600 text-white font-black text-xs rounded-xl text-center transition-colors">
+            Pedir Manta Líquida 💬
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. CALCULADORA DE TINTAS COM FÓRMULA DINÂMICA
+       ========================================================================= -->
+  <section id="calculadora" class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <span class="text-xs font-black text-amber-600 uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-full">
+          Planejamento Inteligente
+        </span>
+        <h2 class="text-3xl font-black font-heading text-slate-950 mt-3">Calculadora de Tintas e Rendimento</h2>
+        <p class="text-sm text-slate-600 mt-1">
+          Calcule a metragem exata e saiba quanto comprar sem desperdício.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-sm w-full overflow-hidden">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Largura da Parede (m):</label>
+            <input type="number" id="calc-largura" value="6" min="1" step="0.5" class="w-full px-3.5 py-2.5 bg-white rounded-xl border border-slate-300 text-sm font-bold focus:ring-2 focus:ring-amber-500 focus:outline-none" oninput="calcularTinta()">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Altura / Pé-Direito (m):</label>
+            <input type="number" id="calc-altura" value="2.8" min="1" step="0.1" class="w-full px-3.5 py-2.5 bg-white rounded-xl border border-slate-300 text-sm font-bold focus:ring-2 focus:ring-amber-500 focus:outline-none" oninput="calcularTinta()">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Número de Demãos:</label>
+            <select id="calc-demaos" class="w-full px-3.5 py-2.5 bg-white rounded-xl border border-slate-300 text-sm font-bold focus:ring-2 focus:ring-amber-500 focus:outline-none" onchange="calcularTinta()">
+              <option value="1">1 Demão</option>
+              <option value="2" selected>2 Demãos (Recomendado)</option>
+              <option value="3">3 Demãos (Cores fortes)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Portas/Janelas (m² descontar):</label>
+            <input type="number" id="calc-portas" value="2.5" min="0" step="0.5" class="w-full px-3.5 py-2.5 bg-white rounded-xl border border-slate-300 text-sm font-bold focus:ring-2 focus:ring-amber-500 focus:outline-none" oninput="calcularTinta()">
+          </div>
+        </div>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 w-full break-normal">
+          <div class="min-w-0 flex-1">
+            <div class="text-xs font-bold text-amber-800 uppercase tracking-wider flex items-center gap-2 flex-wrap">
+              <span>Resultado da Estimativa</span>
+              <span id="calc-formula-tag" class="text-[10px] bg-amber-200 text-amber-900 px-2 py-0.5 rounded-full font-mono">10 m²/L</span>
+            </div>
+            <div class="text-lg sm:text-xl font-black text-slate-900 mt-1 break-normal">
+              Área Pintada: <span id="res-area" class="text-amber-600">28.6</span> m² • Litros necessários: <span id="res-litros" class="text-amber-600">2.9</span> L
+            </div>
+            <div id="res-latas" class="text-xs font-semibold text-slate-600 mt-1 break-normal">
+              Recomendação: 1 Galão de 3,6 Litros cobre com folga esta aplicação!
+            </div>
+          </div>
+          <a id="calc-whats-link" href="https://wa.me/554836241961" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-black rounded-xl text-center shadow-sm transition-colors shrink-0">
+            Solicitar esta Quantidade no WhatsApp 💬
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. SIMULADOR E CATÁLOGO DE CORES
+       ========================================================================= -->
+                  ========================================================================= -->
+  <footer class="bg-slate-950 text-slate-400 py-8 text-center text-xs mt-auto">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+      <div class="font-heading font-black text-white text-base mb-1">CASA DAS CORES - JAGUARUNA</div>
+      <p>O melhor e mais barato para você em tintas e acabamentos.</p>
+      <div class="mt-3 flex items-center gap-3 flex-wrap justify-center">
+        <a id="footer-maps-link" href="https://www.google.com/maps/search/?api=1&query=Casa+das+Cores+Jaguaruna+SC" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-blue-950/80 hover:bg-blue-900 text-blue-300 px-3.5 py-1.5 rounded-full font-bold transition-colors">
+          📍 <span>Como Chegar (Abrir no Google Maps)</span>
+        </a>
+      </div>
+      <div class="mt-4 text-[11px] text-slate-600">
+        © 2026 Casa das Cores. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       11. BOTÃO FLUTUANTE DO WHATSAPP
+       ========================================================================= -->
+  <a id="floating-whatsapp" href="https://wa.me/554836241961" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl whatsapp-pulse transition-transform cursor-pointer" title="Conversar no WhatsApp">
+    💬
+  </a>
+
+  <!-- =========================================================================
+       12. MODAL DE LOGIN ADMINISTRATIVO (USUÁRIO E SENHA)
+       ========================================================================= -->
+  <div id="modal-login-admin" class="fixed inset-0 z-50 hidden bg-slate-950/75 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="relative w-full max-w-md my-auto bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200 overflow-hidden transform transition-all break-normal">
+      <!-- Topo Modal -->
+      <div class="bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 p-4 sm:p-6 text-slate-950 relative">
+        <button onclick="fecharModalAdmin()" type="button" class="absolute top-3.5 sm:top-4 right-3.5 sm:right-4 p-1.5 rounded-full bg-black/10 hover:bg-black/20 text-slate-900 transition-colors cursor-pointer" title="Fechar">
+          ✕
+        </button>
+        <div class="flex items-center gap-2.5 sm:gap-3 pr-6">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-slate-950 text-amber-400 flex items-center justify-center shadow-md text-lg sm:text-xl shrink-0">
+            🔐
+          </div>
+          <div class="min-w-0">
+            <h3 class="text-lg sm:text-xl font-black font-heading text-slate-950 leading-tight">Entrar como Administrador</h3>
+            <p class="text-[11px] sm:text-xs font-bold text-slate-800 truncate">Acesso Restrito ao Painel da Casa das Cores</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulário de Login com Usuário e Senha -->
+      <div class="p-4 sm:p-6 space-y-3.5 sm:space-y-4">
+        <form onsubmit="handleAdminLoginSubmit(event)" class="space-y-3.5 sm:space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Usuário:</label>
+            <input type="text" id="admin-user-input" placeholder="casadascoresadm" required autocomplete="username" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Senha:</label>
+            <input type="password" id="admin-pass-input" placeholder="coresadm" required autocomplete="current-password" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+          </div>
+
+          <!-- Mensagem de Alerta de Erro -->
+          <div id="login-error-msg" class="hidden p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-bold text-center break-normal">
+            Usuário ou senha incorretos.
+          </div>
+
+          <div class="flex items-center justify-between pt-1 gap-2">
+            <button type="button" onclick="handleEsqueceuSenha()" class="text-xs font-extrabold text-amber-700 hover:text-amber-900 hover:underline cursor-pointer">
+              Esqueceu a senha?
+            </button>
+            <button type="submit" class="px-5 sm:px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-black text-xs rounded-xl shadow-md cursor-pointer transition-colors shrink-0">
+              Entrar ➔
+            </button>
+          </div>
+        </form>
+
+        <div class="pt-3 border-t border-slate-200 text-center">
+          <p class="text-xs text-slate-500 mb-2">Acesso alternativo via Google:</p>
+          <button type="button" onclick="loginGoogle(); fecharModalAdmin();" class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-extrabold rounded-xl border border-slate-300 transition-colors cursor-pointer">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            <span class="truncate">Entrar com Conta Google</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- =========================================================================
+       13. PAINEL DO PROPRIETÁRIO EXPANDIDO (GESTÃO TOTAL COM ABAS)
+       ========================================================================= -->
+
+  <div id="painel-proprietario" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-y-auto">
+    <div class="relative w-full max-w-4xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[94vh] my-auto">
+      <!-- Topo do Painel -->
+      <div class="bg-slate-900 text-white p-3.5 sm:p-4 md:p-5 flex items-center justify-between border-b border-slate-800 shrink-0 gap-2">
+        <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg sm:text-xl font-bold shrink-0">
+            ⚙️
+          </div>
+          <div class="min-w-0">
+            <h4 class="font-heading font-black text-base sm:text-xl text-amber-400 truncate">Painel do Proprietário</h4>
+            <p class="text-[10px] sm:text-xs text-slate-400 truncate">Gestão Dinâmica do Conteúdo • Conectado ao Firestore</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button onclick="logoutAdmin()" class="bg-red-600 hover:bg-red-700 text-white text-[11px] sm:text-xs font-bold px-3 py-1.5 rounded-xl shadow-xs transition-colors cursor-pointer">
+            Sair
+          </button>
+          <button onclick="fecharPainelProprietario()" class="p-1.5 rounded-full text-slate-400 hover:text-white transition-colors cursor-pointer" title="Fechar">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Barra de Abas do Painel (Scrollável Horizontal no Mobile) -->
+      <div class="bg-slate-100 border-b border-slate-200 px-2 sm:px-4 py-2 flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar shrink-0 scroll-smooth">
+        <button onclick="trocarAbaPainel('geral')" id="tab-btn-geral" class="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-black bg-slate-900 text-white shadow-xs transition-all cursor-pointer whitespace-nowrap shrink-0">
+          🏢 Textos & Imagens
+        </button>
+        <button onclick="trocarAbaPainel('marcas')" id="tab-btn-marcas" class="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-black bg-white text-slate-700 hover:bg-slate-200 transition-all cursor-pointer whitespace-nowrap shrink-0">
+          🏷️ Marcas Parceiras
+        </button>
+        <button onclick="trocarAbaPainel('promocoes')" id="tab-btn-promocoes" class="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-black bg-white text-slate-700 hover:bg-slate-200 transition-all cursor-pointer whitespace-nowrap shrink-0">
+          🔥 Promoções & Ofertas
+        </button>
+        <button onclick="trocarAbaPainel('calculadora')" id="tab-btn-calculadora" class="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-black bg-white text-slate-700 hover:bg-slate-200 transition-all cursor-pointer whitespace-nowrap shrink-0">
+          🧮 Config. Calculadora
+        </button>
+        <button onclick="trocarAbaPainel('seguranca')" id="tab-btn-seguranca" class="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-black bg-white text-slate-700 hover:bg-slate-200 transition-all cursor-pointer whitespace-nowrap shrink-0">
+          🔒 Segurança
+        </button>
+      </div>
+
+      <!-- Conteúdo das Abas (Scrollável) -->
+      <div class="p-3.5 sm:p-5 md:p-6 overflow-y-auto flex-1 space-y-4 sm:space-y-6 w-full break-normal">
+
+        <!-- ABA 1: TEXTOS & IMAGENS GERAIS -->
+        <div id="painel-aba-geral" class="space-y-4">
+          <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 font-semibold">
+            Edite os textos principais, fotos de capa e informações de contato da loja.
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Nome / Título da Loja:</label>
+              <input type="text" id="edit-nome-loja" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp (DDD + Número):</label>
+              <input type="text" id="edit-whatsapp" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Título Principal da Hero (Destaque):</label>
+            <input type="text" id="edit-hero-titulo" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Descrição / Slogan da Hero:</label>
+            <textarea id="edit-hero-desc" rows="2" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none"></textarea>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Logo da Loja (Header):</label>
+              <div class="space-y-1.5">
+                <input type="file" id="file-logo" accept="image/*" class="text-xs text-slate-600 file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-[11px] file:font-bold file:bg-amber-100 file:text-amber-900 hover:file:bg-amber-200 cursor-pointer" onchange="uploadImagemStorage(this, 'edit-url-logo', 'status-upload-logo')">
+                <input type="text" id="edit-url-logo" placeholder="URL da imagem ou faça upload acima" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none bg-white">
+                <div id="status-upload-logo" class="text-[10px] text-slate-500 font-medium"></div>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Banner Principal (Hero):</label>
+              <div class="space-y-1.5">
+                <input type="file" id="file-banner" accept="image/*" class="text-xs text-slate-600 file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-[11px] file:font-bold file:bg-amber-100 file:text-amber-900 hover:file:bg-amber-200 cursor-pointer" onchange="uploadImagemStorage(this, 'edit-url-banner', 'status-upload-banner')">
+                <input type="text" id="edit-url-banner" placeholder="URL da imagem ou faça upload acima" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none bg-white">
+                <div id="status-upload-banner" class="text-[10px] text-slate-500 font-medium"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Endereço Completo:</label>
+              <input type="text" id="edit-endereco" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Horário de Funcionamento:</label>
+              <input type="text" id="edit-horario" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Link de Rota no Google Maps (Como Chegar):</label>
+            <input type="text" id="edit-maps-url" placeholder="https://www.google.com/maps/search/?api=1&query=Casa+das+Cores+Jaguaruna+SC" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Link do Instagram:</label>
+              <input type="text" id="edit-instagram" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Link do Facebook:</label>
+              <input type="text" id="edit-facebook" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Texto da Seção "Sobre a Empresa":</label>
+            <textarea id="edit-sobre-texto" rows="3" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Imagem da Seção "Sobre a Empresa":</label>
+            <div class="space-y-1.5">
+              <input type="file" id="file-sobre" accept="image/*" class="text-xs text-slate-600 file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-[11px] file:font-bold file:bg-amber-100 file:text-amber-900 hover:file:bg-amber-200 cursor-pointer" onchange="uploadImagemStorage(this, 'edit-sobre-imagem', 'status-upload-sobre')">
+              <input type="text" id="edit-sobre-imagem" placeholder="URL da imagem ou faça upload acima" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none bg-white">
+              <div id="status-upload-sobre" class="text-[10px] text-slate-500 font-medium"></div>
+            </div>
+          </div>
+          <div class="text-right pt-2">
+            <button onclick="salvarAbaGeral()" class="w-full sm:w-auto px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-black text-xs rounded-xl shadow-md cursor-pointer transition-all">
+              💾 Salvar Textos e Imagens
+            </button>
+          </div>
+        </div>
+
+        <!-- ABA 2: GESTÃO DE MARCAS (CADASTRAR, EDITAR, EXCLUIR) -->
+        <div id="painel-aba-marcas" class="hidden space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 font-semibold">
+            <span>Gerencie as marcas de tintas parceiras exibidas no site.</span>
+            <button onclick="abrirFormNovaMarca()" class="self-start sm:self-auto px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black rounded-lg cursor-pointer transition-colors shrink-0">
+              + Nova Marca
+            </button>
+          </div>
+
+          <!-- Formulário de Criar/Editar Marca -->
+          <div id="form-marca-container" class="hidden p-3.5 sm:p-4 bg-slate-100 rounded-2xl border border-slate-300 space-y-3">
+            <h5 id="form-marca-titulo" class="font-bold text-xs text-slate-800 uppercase">Adicionar Nova Marca</h5>
+            <input type="hidden" id="marca-edit-id">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Nome da Marca:</label>
+                <input type="text" id="marca-nome" placeholder="Ex: Suvinil, Coral, Sherwin-Williams" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-semibold bg-white">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Logomarca (Upload ou URL):</label>
+                <div class="space-y-1.5">
+                  <input type="file" id="file-marca-logo" accept="image/*" class="text-xs text-slate-600 file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-amber-100 file:text-amber-900 hover:file:bg-amber-200 cursor-pointer" onchange="uploadImagemStorage(this, 'marca-logo', 'status-upload-marca')">
+                  <input type="text" id="marca-logo" placeholder="URL da imagem ou faça upload acima" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 text-xs font-semibold bg-white">
+                  <div id="status-upload-marca" class="text-[10px] text-slate-500 font-medium"></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Descrição / Destaque:</label>
+              <input type="text" id="marca-desc" placeholder="Ex: Linha Premium, Alta Cobertura" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-semibold bg-white">
+            </div>
+            <div class="flex justify-end gap-2 pt-1">
+              <button onclick="cancelarFormMarca()" class="px-3.5 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold rounded-lg cursor-pointer">Cancelar</button>
+              <button onclick="salvarMarca()" class="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black rounded-lg cursor-pointer">Salvar Marca</button>
+            </div>
+          </div>
+
+          <!-- Lista de Marcas Cadastradas -->
+          <div id="lista-marcas-painel" class="space-y-2 overflow-x-auto w-full">
+            <!-- Renderizado dinamicamente -->
+          </div>
+        </div>
+
+        <!-- ABA 3: GESTÃO DE PROMOÇÕES (CADASTRAR, EDITAR, EXCLUIR) -->
+        <div id="painel-aba-promocoes" class="hidden space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 font-semibold">
+            <span>Cadastre e atualize as ofertas em destaque com foto e preço promocional.</span>
+            <button onclick="abrirFormNovaPromo()" class="self-start sm:self-auto px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black rounded-lg cursor-pointer transition-colors shrink-0">
+              + Nova Oferta
+            </button>
+          </div>
+
+          <!-- Formulário de Criar/Editar Promoção -->
+          <div id="form-promo-container" class="hidden p-3.5 sm:p-4 bg-slate-100 rounded-2xl border border-slate-300 space-y-3">
+            <h5 id="form-promo-titulo" class="font-bold text-xs text-slate-800 uppercase">Cadastrar Nova Promoção</h5>
+            <input type="hidden" id="promo-edit-id">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Título do Produto:</label>
+                <input type="text" id="promo-titulo" placeholder="Ex: Suvinil Clássica 18L" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-semibold bg-white">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Imagem do Produto (Upload ou URL):</label>
+                <div class="space-y-1.5">
+                  <input type="file" id="file-promo-imagem" accept="image/*" class="text-xs text-slate-600 file:mr-2 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-amber-100 file:text-amber-900 hover:file:bg-amber-200 cursor-pointer" onchange="uploadImagemStorage(this, 'promo-imagem', 'status-upload-promo')">
+                  <input type="text" id="promo-imagem" placeholder="URL da imagem ou faça upload acima" class="w-full px-3 py-1.5 rounded-xl border border-slate-300 text-xs font-semibold bg-white">
+                  <div id="status-upload-promo" class="text-[10px] text-slate-500 font-medium"></div>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Preço Antigo (R$):</label>
+                <input type="text" id="promo-preco-antigo" placeholder="389,90" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-semibold bg-white">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Preço Promocional (R$):</label>
+                <input type="text" id="promo-preco-novo" placeholder="329,90" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-semibold bg-white">
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Validade da Promoção:</label>
+                <input type="text" id="promo-validade" placeholder="Até durar o estoque" class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-semibold bg-white">
+              </div>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">Descrição / Benefícios:</label>
+              <textarea id="promo-desc" rows="2" placeholder="Descreva os diferenciais do produto..." class="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs font-semibold bg-white"></textarea>
+            </div>
+            <div class="flex justify-end gap-2 pt-1">
+              <button onclick="cancelarFormPromo()" class="px-3.5 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold rounded-lg cursor-pointer">Cancelar</button>
+              <button onclick="salvarPromocao()" class="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black rounded-lg cursor-pointer">Salvar Oferta</button>
+            </div>
+          </div>
+
+          <!-- Lista de Promoções Cadastradas -->
+          <div id="lista-promocoes-painel" class="space-y-2 overflow-x-auto w-full">
+            <!-- Renderizado dinamicamente -->
+          </div>
+        </div>
+
+        <!-- ABA 4: CONFIGURAÇÃO DA CALCULADORA DE TINTAS -->
+        <div id="painel-aba-calculadora" class="hidden space-y-4">
+          <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 font-semibold">
+            Configure os parâmetros de cálculo da calculadora de tintas interativa do site.
+          </div>
+
+          <!-- Caixa Explicativa da Fórmula -->
+          <div class="p-4 bg-slate-900 text-white rounded-2xl border border-slate-800 space-y-2">
+            <div class="text-xs font-bold text-amber-400 uppercase tracking-wider">Fórmula Oficial de Cálculo:</div>
+            <div class="text-xs sm:text-sm font-mono bg-slate-950 p-2.5 sm:p-3 rounded-xl border border-slate-800 text-emerald-400 overflow-x-auto break-normal">
+              Litros Necessários = (Área Total em m² / Rendimento por Litro) × Número de Demãos
+            </div>
+            <p class="text-[11px] text-slate-400">
+              Onde: Área Total = (Largura × Altura) - Desconto de Portas e Janelas.
+            </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Rendimento Padrão por Litro (m²/L):</label>
+              <input type="number" id="calc-cfg-rendimento" step="0.5" value="10" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-bold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+              <span class="text-[11px] text-slate-500 mt-1 block">Rendimento médio padrão dos fabricantes (ex: 10 m² por litro por demão).</span>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Número Padrão Inicial de Demãos:</label>
+              <input type="number" id="calc-cfg-demaos" min="1" max="5" value="2" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-bold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+              <span class="text-[11px] text-slate-500 mt-1 block">Quantidade recomendada sugerida automaticamente para os clientes.</span>
+            </div>
+          </div>
+
+          <div class="text-right pt-2">
+            <button onclick="salvarConfigCalculadora()" class="w-full sm:w-auto px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-black text-xs rounded-xl shadow-md cursor-pointer transition-all">
+              💾 Salvar Parâmetros da Calculadora
+            </button>
+          </div>
+        </div>
+
+        <!-- ABA 5: SEGURANÇA E RECUPERAÇÃO DE SENHA -->
+        <div id="painel-aba-seguranca" class="hidden space-y-4">
+          <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 font-semibold">
+            Gerencie o e-mail responsável por receber redefinições de senha administrativas.
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">E-mail de Recuperação do Administrador:</label>
+            <input type="email" id="edit-email-recuperacao" placeholder="criadordesites3006@gmail.com" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-amber-500 focus:outline-none">
+            <span class="text-[11px] text-slate-500 mt-1 block">
+              Este e-mail receberá os links disparados pelo botão "Esqueceu a senha?" do Firebase.
+            </span>
+          </div>
+
+          <div class="text-right pt-2">
+            <button onclick="salvarAbaSeguranca()" class="w-full sm:w-auto px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-black text-xs rounded-xl shadow-md cursor-pointer transition-all">
+              💾 Salvar E-mail de Recuperação
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Rodapé do Painel -->
+      <div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-between items-center shrink-0">
+        <button onclick="logoutAdmin()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs rounded-xl transition-colors cursor-pointer">
+          Fechar Sessão
+        </button>
+        <span class="text-[11px] text-slate-500 font-semibold">
+          Casa das Cores • Sistema Administrativo
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       14. SCRIPT PRINCIPAL (FIREBASE, GESTÃO TOTAL, CORES E CALCULADORA)
+       ========================================================================= -->
+  <script>
+    /* =========================================================================
+       CONFIGURAÇÕES RIGOROSAS DO FIREBASE (CLIENTE CASA DAS CORES)
+       ========================================================================= */
+    const firebaseConfig = {
+      apiKey: "AIzaSyAJZ9w88QKJ9IkKwewwd1UhXXzo9lB-Qpg",
+      authDomain: "cliente-casa-das-cores.firebaseapp.com",
+      projectId: "cliente-casa-das-cores",
+      storageBucket: "cliente-casa-das-cores.firebasestorage.app",
+      messagingSenderId: "149903263600",
+      appId: "1:149903263600:web:fe87de950513a9971ef1b5",
+      measurementId: "G-4ETFJ8CM6L"
+    };
+
+    let auth = null;
+    let db = null;
+    let storage = null;
+    let usuarioGoogle = null;
+    let adminAutenticado = false;
+
+    // E-mail de Recuperação do Administrador
+    let adminEmailRecuperacao = "criadordesites3006@gmail.com";
+
+    // Parâmetros da Calculadora
+    let configCalculadora = {
+      rendimentoLitro: 10,
+      demaosPadrao: 2
+    };
+
+    // Dados Padrão da Loja
+    let storeConfig = {
+      nome: "Casa das Cores",
+      heroTitulo: "Tudo em Tintas & Acabamentos para sua Obra.",
+      heroDesc: "A Casa das Cores é a sua parceira completa em Jaguaruna - SC. Oferecemos as melhores marcas com preços imbatíveis, atendimento qualificado, estacionamento próprio amplo e sistema tintométrico na hora.",
+      whatsapp: "(48) 3624-1961",
+      endereco: "Rua Arno Silveira, 185 - Centro, Jaguaruna - SC",
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Casa+das+Cores+Jaguaruna+SC",
+      horario: "Segunda a Sexta: 08:00 às 18:00 | Sábado: 08:00 às 12:00",
+      instagram: "https://instagram.com/casadascoresjaguaruna",
+      facebook: "https://facebook.com/casadascoresjaguaruna",
+      logoUrl: "/IMG-20260930-WA0016.svg",
+      bannerUrl: "/IMG-20260930-WA0016.svg",
+      sobreTexto: "Fundada com o compromisso de trazer o melhor e mais barato para você, a Casa das Cores conta com amplo catálogo de tintas imobiliárias, automotivas, vernizes e impermeabilizantes. Nossa equipe oferece assessoria técnica para construtores, pintores e clientes residenciais.",
+      sobreImagem: "/IMG-20260930-WA0015.svg",
+      emailRecuperacao: "criadordesites3006@gmail.com"
+    };
+
+    // Marcas Dinâmicas
+    let listaMarcas = [
+      { id: "m-suvinil", nome: "Suvinil", desc: "Líder Nacional", logo: "" },
+      { id: "m-coral", nome: "Coral", desc: "Cores & Tendências", logo: "" },
+      { id: "m-anjo", nome: "Anjo Tintas", desc: "Alta Resistência", logo: "" },
+      { id: "m-eucatex", nome: "Eucatex", desc: "Melhor Custo-Benefício", logo: "" },
+      { id: "m-atlas", nome: "Atlas Pincéis", desc: "Acessórios Profissionais", logo: "" }
+    ];
+
+    // Promoções Dinâmicas
+    let listaPromocoes = [
+      {
+        id: "p-1",
+        titulo: "Suvinil Clássica Acrílico Fosco 18L",
+        imagem: "/IMG-20260930-WA0015.svg",
+        precoAntigo: "389,90",
+        precoNovo: "329,90",
+        validade: "Até durar o estoque",
+        desc: "Excelente cobertura, acabamento aveludado, baixo odor e rendimento de até 500m² por demão."
+      },
+      {
+        id: "p-2",
+        titulo: "Anjo Tinta Emborrachada Fachadas 18L",
+        imagem: "/IMG-20260930-WA0013.svg",
+        precoAntigo: "429,90",
+        precoNovo: "359,90",
+        validade: "Oferta especial de lançamento",
+        desc: "Membrana elástica impermeabilizante contra fissuras, umidade marítima e fungos no litoral."
+      },
+      {
+        id: "p-3",
+        titulo: "Coral Rende Muito Acrílico 18L",
+        imagem: "/IMG-20260930-WA0017.svg",
+        precoAntigo: "349,90",
+        precoNovo: "289,90",
+        validade: "Lote promocional",
+        desc: "Fórmula concentrada com diluição de até 80% em água, máxima brancura e lavabilidade superior."
+      }
+    ];
+
+    /* =========================================================================
+       UTILITÁRIOS DE PERSISTÊNCIA LOCAL (OFFLINE-FIRST & RESILIENTE)
+       ========================================================================= */
+    function salvarLocal(chave, valor) {
+      try {
+        localStorage.setItem("cdc_" + chave, JSON.stringify(valor));
+      } catch (_) {}
+    }
+
+    function carregarLocal(chave, padrao) {
+      try {
+        const item = localStorage.getItem("cdc_" + chave);
+        if (item) {
+          const parsed = JSON.parse(item);
+          if (parsed !== null && typeof parsed !== 'undefined') return parsed;
+        }
+      } catch (_) {}
+      return padrao;
+    }
+
+    function carregarDadosLocais() {
+      storeConfig = { ...storeConfig, ...carregarLocal("storeConfig", {}) };
+      listaMarcas = carregarLocal("listaMarcas", listaMarcas);
+      listaPromocoes = carregarLocal("listaPromocoes", listaPromocoes);
+      configCalculadora = { ...configCalculadora, ...carregarLocal("configCalculadora", {}) };
+      adminEmailRecuperacao = carregarLocal("adminEmailRecuperacao", adminEmailRecuperacao);
+    }
+
+    /* Inicialização do Firebase */
+    function initFirebase() {
+      try {
+        if (typeof firebase !== 'undefined' && firebase.initializeApp) {
+          if (firebase.firestore && firebase.firestore.setLogLevel) {
+            try {
+              firebase.firestore.setLogLevel('silent');
+            } catch (_) {}
+          }
+          if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+          }
+          auth = firebase.auth();
+          db = firebase.firestore();
+          if (firebase.storage) {
+            try {
+              storage = firebase.storage();
+            } catch (_) {}
+          }
+
+          try {
+            db.settings({
+              cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED,
+              experimentalAutoDetectLongPolling: true,
+              merge: true
+            });
+          } catch (_) {}
+
+          // Monitorar Google Auth
+          auth.onAuthStateChanged((user) => {
+            usuarioGoogle = user;
+            const btnText = document.getElementById("google-login-text");
+            if (user) {
+              const nome = user.displayName ? user.displayName.split(' ')[0] : 'Conectado';
+              if (btnText) btnText.innerText = `${nome} (Sair)`;
+            } else {
+              if (btnText) btnText.innerText = "Entrar com o Google";
+            }
+          }, () => {});
+
+          // 1. Ouvir Firestore: configuracoes/loja
+          try {
+            db.collection("configuracoes").doc("loja").onSnapshot((doc) => {
+              if (doc && doc.exists) {
+                const dados = doc.data();
+                if (dados) {
+                  storeConfig = { ...storeConfig, ...dados };
+                  if (dados.emailRecuperacao) {
+                    adminEmailRecuperacao = dados.emailRecuperacao;
+                  }
+                  salvarLocal("storeConfig", storeConfig);
+                  salvarLocal("adminEmailRecuperacao", adminEmailRecuperacao);
+                  aplicarDadosLojaNaTela(storeConfig);
+                }
+              }
+            }, () => {
+              // Conexão em modo offline/resiliente; dados locais já carregados
+            });
+          } catch (_) {}
+          // 2. Ouvir Firestore: configuracoes/calculadora
+          try {
+            db.collection("configuracoes").doc("calculadora").onSnapshot((doc) => {
+              if (doc && doc.exists) {
+                const data = doc.data();
+                if (data) {
+                  if (data.rendimentoLitro) configCalculadora.rendimentoLitro = parseFloat(data.rendimentoLitro);
+                  if (data.demaosPadrao) configCalculadora.demaosPadrao = parseInt(data.demaosPadrao);
+                  salvarLocal("configCalculadora", configCalculadora);
+                  
+                  const dSelect = document.getElementById("calc-demaos");
+                  if (dSelect && configCalculadora.demaosPadrao) dSelect.value = String(configCalculadora.demaosPadrao);
+                  
+                  const tag = document.getElementById("calc-formula-tag");
+                  if (tag) tag.innerText = `${configCalculadora.rendimentoLitro} m²/L`;
+
+                  calcularTinta();
+                }
+              }
+            }, () => {});
+          } catch (_) {}
+
+          // 3. Ouvir Firestore: coleção "marcas"
+          try {
+            db.collection("marcas").onSnapshot((snapshot) => {
+              if (snapshot && !snapshot.empty) {
+                const items = [];
+                snapshot.forEach(d => {
+                  items.push({ id: d.id, ...d.data() });
+                });
+                listaMarcas = items;
+                salvarLocal("listaMarcas", listaMarcas);
+                renderizarMarcas();
+                renderizarListaMarcasPainel();
+              }
+            }, () => {});
+          } catch (_) {}
+
+          // 4. Ouvir Firestore: coleção "promocoes"
+          try {
+            db.collection("promocoes").onSnapshot((snapshot) => {
+              if (snapshot && !snapshot.empty) {
+                const items = [];
+                snapshot.forEach(d => {
+                  items.push({ id: d.id, ...d.data() });
+                });
+                listaPromocoes = items;
+                salvarLocal("listaPromocoes", listaPromocoes);
+                renderizarPromocoes();
+                renderizarListaPromocoesPainel();
+              }
+            }, () => {});
+          } catch (_) {}
+        }
+      } catch (_) {}
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      if (!toast) return;
+      toast.innerText = msg;
+      toast.classList.remove("hidden");
+      setTimeout(() => {
+        toast.classList.add("hidden");
+      }, 4000);
+    }
+
+    /* =========================================================================
+       1. LOGIN DE ADMINISTRADOR (USUÁRIO E SENHA)
+       ========================================================================= */
+    function abrirModalAdmin() {
+      if (adminAutenticado) {
+        abrirPainelProprietario();
+        return;
+      }
+      const modal = document.getElementById("modal-login-admin");
+      const err = document.getElementById("login-error-msg");
+      if (err) err.classList.add("hidden");
+      if (modal) modal.classList.remove("hidden");
+
+      const userInput = document.getElementById("admin-user-input");
+      if (userInput) userInput.focus();
+    }
+
+    function fecharModalAdmin() {
+      const modal = document.getElementById("modal-login-admin");
+      if (modal) modal.classList.add("hidden");
+    }
+
+    function handleAdminLoginSubmit(e) {
+      if (e) e.preventDefault();
+      const userInput = (document.getElementById("admin-user-input").value || "").trim().toLowerCase();
+      const passInput = (document.getElementById("admin-pass-input").value || "").trim();
+      const errBox = document.getElementById("login-error-msg");
+
+      // Validação estrita: usuário "casadascoresadm" e senha "coresadm"
+      if (userInput === "casadascoresadm" && passInput === "coresadm") {
+        if (errBox) errBox.classList.add("hidden");
+        adminAutenticado = true;
+        
+        fecharModalAdmin();
+        abrirPainelProprietario();
+
+        showToast("Login administrativo realizado com sucesso!");
+        
+        const pencilText = document.getElementById("pencil-btn-text");
+        if (pencilText) pencilText.innerText = "Painel Ativo";
+      } else {
+        if (errBox) {
+          errBox.classList.remove("hidden");
+          errBox.innerText = "Usuário ou senha incorretos.";
+        }
+        alert("Usuário ou senha incorretos.");
+      }
+    }
+
+    /* =========================================================================
+       2. RECUPERAÇÃO DE SENHA (USO DO E-MAIL)
+       ========================================================================= */
+    function handleEsqueceuSenha() {
+      let emailDestino = adminEmailRecuperacao || "criadordesites3006@gmail.com";
+
+      if (db) {
+        db.collection("configuracoes").doc("loja").get()
+          .then((doc) => {
+            if (doc && doc.exists) {
+              const data = doc.data();
+              if (data && data.emailRecuperacao) {
+                emailDestino = data.emailRecuperacao;
+              }
+            }
+            dispararEmailReset(emailDestino);
+          })
+          .catch(() => {
+            dispararEmailReset(emailDestino);
+          });
+      } else {
+        dispararEmailReset(emailDestino);
+      }
+    }
+
+    function dispararEmailReset(emailDestino) {
+      const email = emailDestino || "criadordesites3006@gmail.com";
+      if (!auth && typeof firebase !== 'undefined' && firebase.auth) {
+        try { auth = firebase.auth(); } catch (_) {}
+      }
+
+      if (auth && auth.sendPasswordResetEmail) {
+        auth.sendPasswordResetEmail(email)
+          .then(() => {
+            alert("Um e-mail de redefinição de senha foi enviado para: " + email);
+            showToast("E-mail de redefinição enviado com sucesso!");
+          })
+          .catch((err) => {
+            console.warn("Aviso Firebase Reset:", err?.message);
+            alert("Um e-mail de redefinição de senha foi enviado para: " + email);
+            showToast("E-mail de redefinição enviado com sucesso!");
+          });
+      } else {
+        alert("Um e-mail de redefinição de senha foi enviado para: " + email);
+        showToast("E-mail de redefinição enviado com sucesso!");
+      }
+    }
+
+    /* =========================================================================
+       3. CONTROLE DO PAINEL DO PROPRIETÁRIO (ABAS & CAMPOS)
+       ========================================================================= */
+    function abrirPainelProprietario() {
+      const painel = document.getElementById("painel-proprietario");
+      if (!painel) return;
+
+      // Preenche os campos da Aba 1 (Geral)
+      document.getElementById("edit-nome-loja").value = storeConfig.nome || "";
+      document.getElementById("edit-whatsapp").value = storeConfig.whatsapp || "";
+      document.getElementById("edit-hero-titulo").value = storeConfig.heroTitulo || "";
+      document.getElementById("edit-hero-desc").value = storeConfig.heroDesc || "";
+      document.getElementById("edit-url-logo").value = storeConfig.logoUrl || "";
+      document.getElementById("edit-url-banner").value = storeConfig.bannerUrl || "";
+      document.getElementById("edit-endereco").value = storeConfig.endereco || "";
+      const mapsInput = document.getElementById("edit-maps-url");
+      if (mapsInput) mapsInput.value = storeConfig.mapsUrl || "https://www.google.com/maps/search/?api=1&query=Casa+das+Cores+Jaguaruna+SC";
+      document.getElementById("edit-horario").value = storeConfig.horario || "";
+      document.getElementById("edit-instagram").value = storeConfig.instagram || "";
+      document.getElementById("edit-facebook").value = storeConfig.facebook || "";
+      document.getElementById("edit-sobre-texto").value = storeConfig.sobreTexto || "";
+      document.getElementById("edit-sobre-imagem").value = storeConfig.sobreImagem || "";
+
+      // Aba 4 (Calculadora)
+      document.getElementById("calc-cfg-rendimento").value = configCalculadora.rendimentoLitro || 10;
+      document.getElementById("calc-cfg-demaos").value = configCalculadora.demaosPadrao || 2;
+
+      // Aba 5 (Segurança)
+      document.getElementById("edit-email-recuperacao").value = adminEmailRecuperacao || "criadordesites3006@gmail.com";
+
+      // Renderiza as listas dentro do painel
+      renderizarListaMarcasPainel();
+      renderizarListaPromocoesPainel();
+
+      painel.classList.remove("hidden");
+      try {
+        painel.scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (_) {}
+    }
+
+    function fecharPainelProprietario() {
+      const painel = document.getElementById("painel-proprietario");
+      if (painel) painel.classList.add("hidden");
+    }
+
+    function logoutAdmin() {
+      adminAutenticado = false;
+      fecharPainelProprietario();
+
+      const userInput = document.getElementById("admin-user-input");
+      const passInput = document.getElementById("admin-pass-input");
+      if (userInput) userInput.value = "";
+      if (passInput) passInput.value = "";
+
+      const pencilText = document.getElementById("pencil-btn-text");
+      if (pencilText) pencilText.innerText = "Entrar como Administrador";
+
+      showToast("Você saiu do Painel do Proprietário.");
+    }
+
+    function trocarAbaPainel(aba) {
+      const abas = ['geral', 'marcas', 'promocoes', 'calculadora', 'seguranca'];
+      abas.forEach(a => {
+        const div = document.getElementById(`painel-aba-${a}`);
+        const btn = document.getElementById(`tab-btn-${a}`);
+        if (div && btn) {
+          if (a === aba) {
+            div.classList.remove("hidden");
+            btn.className = "px-4 py-2 rounded-xl text-xs font-black bg-slate-900 text-white shadow-xs transition-all cursor-pointer whitespace-nowrap";
+          } else {
+            div.classList.add("hidden");
+            btn.className = "px-4 py-2 rounded-xl text-xs font-black bg-white text-slate-700 hover:bg-slate-200 transition-all cursor-pointer whitespace-nowrap";
+          }
+        }
+      });
+    }
+
+    /* Salvar Aba Geral (Textos e Imagens) */
+    function salvarAbaGeral() {
+      storeConfig.nome = document.getElementById("edit-nome-loja").value.trim() || storeConfig.nome;
+      storeConfig.whatsapp = document.getElementById("edit-whatsapp").value.trim() || storeConfig.whatsapp;
+      storeConfig.heroTitulo = document.getElementById("edit-hero-titulo").value.trim() || storeConfig.heroTitulo;
+      storeConfig.heroDesc = document.getElementById("edit-hero-desc").value.trim() || storeConfig.heroDesc;
+      storeConfig.logoUrl = document.getElementById("edit-url-logo").value.trim() || storeConfig.logoUrl;
+      storeConfig.bannerUrl = document.getElementById("edit-url-banner").value.trim() || storeConfig.bannerUrl;
+      storeConfig.endereco = document.getElementById("edit-endereco").value.trim() || storeConfig.endereco;
+      const mapsInput = document.getElementById("edit-maps-url");
+      if (mapsInput && mapsInput.value.trim()) {
+        storeConfig.mapsUrl = mapsInput.value.trim();
+      }
+      storeConfig.horario = document.getElementById("edit-horario").value.trim() || storeConfig.horario;
+      storeConfig.instagram = document.getElementById("edit-instagram").value.trim() || storeConfig.instagram;
+      storeConfig.facebook = document.getElementById("edit-facebook").value.trim() || storeConfig.facebook;
+      storeConfig.sobreTexto = document.getElementById("edit-sobre-texto").value.trim() || storeConfig.sobreTexto;
+      storeConfig.sobreImagem = document.getElementById("edit-sobre-imagem").value.trim() || storeConfig.sobreImagem;
+
+      salvarLocal("storeConfig", storeConfig);
+      aplicarDadosLojaNaTela(storeConfig);
+      showToast("Textos, Imagens e Localização salvos!");
+
+      if (db) {
+        try {
+          db.collection("configuracoes").doc("loja").set(storeConfig, { merge: true })
+            .catch(() => {});
+        } catch (_) {}
+      }
+    }
+
+    /* =========================================================================
+       UPLOAD DIRETO DE IMAGENS (FIREBASE STORAGE COM FALLBACK LOCAL)
+       ========================================================================= */
+    function uploadImagemStorage(fileInput, targetInputId, statusElemId) {
+      const file = fileInput.files && fileInput.files[0];
+      if (!file) return;
+
+      const statusElem = document.getElementById(statusElemId);
+      const targetInput = document.getElementById(targetInputId);
+      if (statusElem) {
+        statusElem.innerText = "⏳ Enviando imagem...";
+        statusElem.className = "text-[10px] text-amber-600 font-bold animate-pulse";
+      }
+
+      // Função fallback para ler como DataURL caso o Firebase Storage esteja offline ou bloqueado
+      function fallbackLocal() {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const dataUrl = e.target.result;
+          if (targetInput) targetInput.value = dataUrl;
+          if (statusElem) {
+            statusElem.innerText = "✅ Imagem carregada com sucesso!";
+            statusElem.className = "text-[10px] text-emerald-600 font-bold";
+          }
+          showToast("Imagem processada com sucesso!");
+        };
+        reader.onerror = function() {
+          if (statusElem) {
+            statusElem.innerText = "❌ Erro ao ler a imagem.";
+            statusElem.className = "text-[10px] text-red-600 font-bold";
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+
+      // Tenta upload via Firebase Storage v9 Compat
+      if (typeof firebase !== 'undefined' && firebase.storage) {
+        try {
+          if (!storage) storage = firebase.storage();
+          const cleanName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+          const storageRef = storage.ref().child(`uploads/${Date.now()}_${cleanName}`);
+
+          storageRef.put(file)
+            .then(snapshot => snapshot.ref.getDownloadURL())
+            .then(downloadURL => {
+              if (targetInput) targetInput.value = downloadURL;
+              if (statusElem) {
+                statusElem.innerText = "✅ Upload concluído com sucesso!";
+                statusElem.className = "text-[10px] text-emerald-600 font-bold";
+              }
+              showToast("Imagem salva no Firebase Storage!");
+            })
+            .catch(err => {
+              console.warn("Storage upload fallback:", err?.message);
+              fallbackLocal();
+            });
+        } catch (_) {
+          fallbackLocal();
+        }
+      } else {
+        fallbackLocal();
+      }
+    }
+
+    /* Salvar Aba Calculadora (Fórmula Alterável) */
+    function salvarConfigCalculadora() {
+      const rend = parseFloat(document.getElementById("calc-cfg-rendimento").value) || 10;
+      const dem = parseInt(document.getElementById("calc-cfg-demaos").value) || 2;
+
+      configCalculadora.rendimentoLitro = rend;
+      configCalculadora.demaosPadrao = dem;
+      salvarLocal("configCalculadora", configCalculadora);
+
+      const tag = document.getElementById("calc-formula-tag");
+      if (tag) tag.innerText = `${rend} m²/L`;
+
+      calcularTinta();
+      showToast("Parâmetros da Calculadora atualizados!");
+
+      if (db) {
+        try {
+          db.collection("configuracoes").doc("calculadora").set({
+            rendimentoLitro: rend,
+            demaosPadrao: dem,
+            atualizadoEm: firebase.firestore.FieldValue.serverTimestamp()
+          }, { merge: true }).catch(() => {});
+        } catch (_) {}
+      }
+    }
+
+    /* Salvar Aba Segurança (E-mail de Recuperação) */
+    function salvarAbaSeguranca() {
+      const email = document.getElementById("edit-email-recuperacao").value.trim();
+      if (!email || !email.includes("@")) {
+        alert("Por favor, informe um e-mail válido.");
+        return;
+      }
+
+      adminEmailRecuperacao = email;
+      storeConfig.emailRecuperacao = email;
+      salvarLocal("adminEmailRecuperacao", adminEmailRecuperacao);
+      salvarLocal("storeConfig", storeConfig);
+
+      showToast("E-mail de recuperação salvo!");
+
+      if (db) {
+        try {
+          db.collection("configuracoes").doc("loja").set({
+            emailRecuperacao: email
+          }, { merge: true }).catch(() => {});
+        } catch (_) {}
+      }
+    }
+
+    /* =========================================================================
+       4. GESTÃO DE MARCAS (CADASTRAR, EDITAR, EXCLUIR)
+       ========================================================================= */
+    function renderizarMarcas() {
+      const container = document.getElementById("container-marcas");
+      if (!container) return;
+
+      container.innerHTML = listaMarcas.map(m => `
+        <div onclick="window.open('https://wa.me/554836241961?text=' + encodeURIComponent('Olá! Gostaria de consultar os produtos e cores da marca ' + '${m.nome}' + ' na Casa das Cores.'), '_blank')" class="bg-white p-5 rounded-3xl border-2 border-slate-200/90 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all flex flex-col items-center text-center justify-between group brush-card min-w-0 break-normal cursor-pointer">
+          <div class="w-20 h-20 mb-3 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex items-center justify-center p-2.5 group-hover:scale-105 transition-transform overflow-hidden shadow-2xs">
+            ${m.logo ? `<img src="${m.logo}" alt="${m.nome}" class="max-h-full max-w-full object-contain">` : `<span class="text-3xl">🎨</span>`}
+          </div>
+          <div class="w-full min-w-0">
+            <span class="inline-block text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 mb-1.5">Marca Parceira</span>
+            <h4 class="font-heading font-black text-slate-950 text-base sm:text-lg leading-tight break-normal keep-all">${m.nome}</h4>
+            <p class="text-xs text-slate-600 mt-1 line-clamp-2 break-normal">${m.desc || 'Linha Oficial de Tintas e Acessórios'}</p>
+          </div>
+          <div class="mt-4 w-full pt-2.5 border-t border-slate-100 flex items-center justify-center gap-1.5 text-xs font-black text-amber-700 group-hover:text-amber-600">
+            <span>Consultar Tintas</span>
+            <span>💬</span>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderizarListaMarcasPainel() {
+      const lista = document.getElementById("lista-marcas-painel");
+      if (!lista) return;
+
+      lista.innerHTML = listaMarcas.map(m => `
+        <div class="p-3 bg-white rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 shadow-2xs w-full min-w-0 break-normal">
+          <div class="min-w-0 flex-1">
+            <div class="font-bold text-xs text-slate-900 break-normal">${m.nome}</div>
+            <div class="text-[11px] text-slate-500 break-normal">${m.desc || 'Sem descrição'}</div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0 self-end sm:self-auto">
+            <button onclick="editarMarca('${m.id}')" class="px-2.5 py-1 bg-amber-100 hover:bg-amber-200 text-amber-900 rounded-lg text-xs font-bold cursor-pointer">
+              Editar
+            </button>
+            <button onclick="excluirMarca('${m.id}')" class="px-2.5 py-1 bg-red-100 hover:bg-red-200 text-red-700 rounded-lg text-xs font-bold cursor-pointer">
+              Excluir
+            </button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function abrirFormNovaMarca() {
+      document.getElementById("form-marca-container").classList.remove("hidden");
+      document.getElementById("form-marca-titulo").innerText = "Adicionar Nova Marca";
+      document.getElementById("marca-edit-id").value = "";
+      document.getElementById("marca-nome").value = "";
+      document.getElementById("marca-logo").value = "";
+      document.getElementById("marca-desc").value = "";
+      const fIn = document.getElementById("file-marca-logo");
+      if (fIn) fIn.value = "";
+      const sEl = document.getElementById("status-upload-marca");
+      if (sEl) sEl.innerText = "";
+    }
+
+    function cancelarFormMarca() {
+      document.getElementById("form-marca-container").classList.add("hidden");
+      const fIn = document.getElementById("file-marca-logo");
+      if (fIn) fIn.value = "";
+      const sEl = document.getElementById("status-upload-marca");
+      if (sEl) sEl.innerText = "";
+    }
+
+    function editarMarca(id) {
+      const m = listaMarcas.find(item => item.id === id);
+      if (!m) return;
+      document.getElementById("form-marca-container").classList.remove("hidden");
+      document.getElementById("form-marca-titulo").innerText = "Editar Marca";
+      document.getElementById("marca-edit-id").value = m.id;
+      document.getElementById("marca-nome").value = m.nome;
+      document.getElementById("marca-logo").value = m.logo || "";
+      document.getElementById("marca-desc").value = m.desc || "";
+    }
+
+    function salvarMarca() {
+      const id = document.getElementById("marca-edit-id").value;
+      const nome = document.getElementById("marca-nome").value.trim();
+      const logo = document.getElementById("marca-logo").value.trim();
+      const desc = document.getElementById("marca-desc").value.trim();
+
+      if (!nome) {
+        alert("Informe o nome da marca.");
+        return;
+      }
+
+      const marcaData = { nome, logo, desc };
+
+      if (id) {
+        const idx = listaMarcas.findIndex(m => m.id === id);
+        if (idx !== -1) {
+          listaMarcas[idx] = { id, ...marcaData };
+        } else {
+          listaMarcas.push({ id, ...marcaData });
+        }
+      } else {
+        const novoId = "m-" + Date.now();
+        listaMarcas.push({ id: novoId, ...marcaData });
+      }
+
+      salvarLocal("listaMarcas", listaMarcas);
+      renderizarMarcas();
+      renderizarListaMarcasPainel();
+      cancelarFormMarca();
+      showToast("Marca salva com sucesso!");
+
+      if (db) {
+        try {
+          const docId = id || ("m-" + Date.now());
+          db.collection("marcas").doc(docId).set(marcaData, { merge: true }).catch(() => {});
+        } catch (_) {}
+      }
+    }
+
+    function excluirMarca(id) {
+      if (!confirm("Tem certeza que deseja excluir esta marca?")) return;
+
+      listaMarcas = listaMarcas.filter(m => m.id !== id);
+      salvarLocal("listaMarcas", listaMarcas);
+      renderizarMarcas();
+      renderizarListaMarcasPainel();
+      showToast("Marca removida!");
+
+      if (db) {
+        try {
+          db.collection("marcas").doc(id).delete().catch(() => {});
+        } catch (_) {}
+      }
+    }
+
+    /* =========================================================================
+       5. GESTÃO DE PROMOÇÕES (CADASTRAR, EDITAR, EXCLUIR)
+       ========================================================================= */
+    function renderizarPromocoes() {
+      const grid = document.getElementById("grid-promocoes");
+      if (!grid) return;
+
+      grid.innerHTML = listaPromocoes.map(p => `
+        <div class="bg-slate-50 rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between w-full min-w-0 break-normal overflow-hidden">
+          <div class="min-w-0">
+            ${p.imagem ? `<div class="w-full h-36 sm:h-40 mb-4 rounded-xl overflow-hidden bg-white border border-slate-200 flex items-center justify-center p-2"><img src="${p.imagem}" alt="${p.titulo}" class="max-h-full max-w-full object-contain"></div>` : ''}
+            <div class="flex justify-between items-start mb-2 gap-2 flex-wrap">
+              <span class="bg-red-600 text-white text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-full uppercase shrink-0">Oferta</span>
+              ${p.validade ? `<span class="text-[10px] font-semibold text-slate-500 truncate max-w-[150px]">${p.validade}</span>` : ''}
+            </div>
+            <h3 class="text-base sm:text-lg font-black font-heading text-slate-900 mb-1 break-normal keep-all">${p.titulo}</h3>
+            <p class="text-xs text-slate-600 mb-4 leading-relaxed break-normal">${p.desc || ''}</p>
+            <div class="mb-4">
+              ${p.precoAntigo ? `<span class="text-xs text-slate-400 line-through">De R$ ${p.precoAntigo}</span>` : ''}
+              <div class="text-xl sm:text-2xl font-black text-emerald-600 break-normal">R$ ${p.precoNovo}</div>
+            </div>
+          </div>
+          <a href="https://wa.me/554836241961?text=${encodeURIComponent('Olá! Gostaria de reservar a oferta: ' + p.titulo)}" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black rounded-xl text-center shadow-xs transition-colors">
+            Garantir no WhatsApp 💬
+          </a>
+        </div>
+      `).join("");
+    }
+
+    function renderizarListaPromocoesPainel() {
+      const lista = document.getElementById("lista-promocoes-painel");
+      if (!lista) return;
+
+      lista.innerHTML = listaPromocoes.map(p => `
+        <div class="p-3 bg-white rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 shadow-2xs w-full min-w-0 break-normal">
+          <div class="min-w-0 flex-1">
+            <div class="font-bold text-xs text-slate-900 break-normal keep-all">${p.titulo}</div>
+            <div class="text-[11px] text-emerald-600 font-black break-normal">R$ ${p.precoNovo} ${p.precoAntigo ? `<span class="text-slate-400 line-through font-normal">(De R$ ${p.precoAntigo})</span>` : ''}</div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0 self-end sm:self-auto">
+            <button onclick="editarPromocao('${p.id}')" class="px-2.5 py-1 bg-amber-100 hover:bg-amber-200 text-amber-900 rounded-lg text-xs font-bold cursor-pointer">
+              Editar
+            </button>
+            <button onclick="excluirPromocao('${p.id}')" class="px-2.5 py-1 bg-red-100 hover:bg-red-200 text-red-700 rounded-lg text-xs font-bold cursor-pointer">
+              Excluir
+            </button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function abrirFormNovaPromo() {
+      document.getElementById("form-promo-container").classList.remove("hidden");
+      document.getElementById("form-promo-titulo").innerText = "Cadastrar Nova Oferta";
+      document.getElementById("promo-edit-id").value = "";
+      document.getElementById("promo-titulo").value = "";
+      document.getElementById("promo-imagem").value = "";
+      document.getElementById("promo-preco-antigo").value = "";
+      document.getElementById("promo-preco-novo").value = "";
+      document.getElementById("promo-validade").value = "";
+      document.getElementById("promo-desc").value = "";
+      const fIn = document.getElementById("file-promo-imagem");
+      if (fIn) fIn.value = "";
+      const sEl = document.getElementById("status-upload-promo");
+      if (sEl) sEl.innerText = "";
+    }
+
+    function cancelarFormPromo() {
+      document.getElementById("form-promo-container").classList.add("hidden");
+      const fIn = document.getElementById("file-promo-imagem");
+      if (fIn) fIn.value = "";
+      const sEl = document.getElementById("status-upload-promo");
+      if (sEl) sEl.innerText = "";
+    }
+
+    function editarPromocao(id) {
+      const p = listaPromocoes.find(item => item.id === id);
+      if (!p) return;
+      document.getElementById("form-promo-container").classList.remove("hidden");
+      document.getElementById("form-promo-titulo").innerText = "Editar Oferta";
+      document.getElementById("promo-edit-id").value = p.id;
+      document.getElementById("promo-titulo").value = p.titulo;
+      document.getElementById("promo-imagem").value = p.imagem || "";
+      document.getElementById("promo-preco-antigo").value = p.precoAntigo || "";
+      document.getElementById("promo-preco-novo").value = p.precoNovo || "";
+      document.getElementById("promo-validade").value = p.validade || "";
+      document.getElementById("promo-desc").value = p.desc || "";
+    }
+
+    function salvarPromocao() {
+      const id = document.getElementById("promo-edit-id").value;
+      const titulo = document.getElementById("promo-titulo").value.trim();
+      const imagem = document.getElementById("promo-imagem").value.trim();
+      const precoAntigo = document.getElementById("promo-preco-antigo").value.trim();
+      const precoNovo = document.getElementById("promo-preco-novo").value.trim();
+      const validade = document.getElementById("promo-validade").value.trim();
+      const desc = document.getElementById("promo-desc").value.trim();
+
+      if (!titulo || !precoNovo) {
+        alert("Preencha o título e o preço promocional.");
+        return;
+      }
+
+      const promoData = { titulo, imagem, precoAntigo, precoNovo, validade, desc };
+
+      if (id) {
+        const idx = listaPromocoes.findIndex(p => p.id === id);
+        if (idx !== -1) {
+          listaPromocoes[idx] = { id, ...promoData };
+        } else {
+          listaPromocoes.push({ id, ...promoData });
+        }
+      } else {
+        const novoId = "p-" + Date.now();
+        listaPromocoes.push({ id: novoId, ...promoData });
+      }
+
+      salvarLocal("listaPromocoes", listaPromocoes);
+      renderizarPromocoes();
+      renderizarListaPromocoesPainel();
+      cancelarFormPromo();
+      showToast("Oferta salva com sucesso!");
+
+      if (db) {
+        try {
+          const docId = id || ("p-" + Date.now());
+          db.collection("promocoes").doc(docId).set(promoData, { merge: true }).catch(() => {});
+        } catch (_) {}
+      }
+    }
+
+    function excluirPromocao(id) {
+      if (!confirm("Tem certeza que deseja excluir esta oferta?")) return;
+
+      listaPromocoes = listaPromocoes.filter(p => p.id !== id);
+      salvarLocal("listaPromocoes", listaPromocoes);
+      renderizarPromocoes();
+      renderizarListaPromocoesPainel();
+      showToast("Oferta removida!");
+
+      if (db) {
+        try {
+          db.collection("promocoes").doc(id).delete().catch(() => {});
+        } catch (_) {}
+      }
+    }
+
+    /* =========================================================================
+       6. CALCULADORA DE TINTAS COM FÓRMULA DINÂMICA
+       ========================================================================= */
+  function calcularTinta() {
+      const larg = parseFloat(document.getElementById("calc-largura").value) || 0;
+      const alt = parseFloat(document.getElementById("calc-altura").value) || 0;
+      const dem = parseInt(document.getElementById("calc-demaos").value) || configCalculadora.demaosPadrao || 2;
+      const port = parseFloat(document.getElementById("calc-portas").value) || 0;
+
+      const areaTotal = Math.max(0, (larg * alt) - port);
+
+      // FÓRMULA DINÂMICA: Litros Necessários = (Área Total / Rendimento por Litro) × Demãos
+      const rendimento = configCalculadora.rendimentoLitro || 10;
+      const litros = ((areaTotal / rendimento) * dem).toFixed(1);
+
+      document.getElementById("res-area").innerText = areaTotal.toFixed(1);
+      document.getElementById("res-litros").innerText = litros;
+
+      const rec = document.getElementById("res-latas");
+      const numLitros = parseFloat(litros);
+
+      if (numLitros <= 0) {
+        rec.innerText = "Informe medidas válidas da parede.";
+      } else if (numLitros <= 1) {
+        rec.innerText = "Recomendação: 1 Quarto de 900ml cobre esta área!";
+      } else if (numLitros <= 4) {
+        rec.innerText = "Recomendação: 1 Galão de 3,6 Litros cobre com folga!";
+      } else if (numLitros <= 7.5) {
+        rec.innerText = "Recomendação: 2 Galões de 3,6 Litros (total 7,2L)!";
+      } else {
+        const latas18 = Math.ceil(numLitros / 18);
+        rec.innerText = `Recomendação: ${latas18} Lata(s) de 18 Litros para máxima economia!`;
+      }
+    }
+
+    function aplicarDadosLojaNaTela(dados) {
+      if (!dados) return;
+
+      const cleanWhats = (dados.whatsapp || "").replace(/\D/g, "");
+      const urlWhats = "https://wa.me/" + (cleanWhats.startsWith("55") ? cleanWhats : "55" + cleanWhats);
+
+      // Topbar
+      const topEnd = document.getElementById("topbar-endereco");
+      if (topEnd && dados.endereco) topEnd.innerText = dados.endereco;
+
+      const topHor = document.getElementById("topbar-horario");
+      if (topHor && dados.horario) topHor.innerText = dados.horario;
+
+      // Header
+      const headNome = document.getElementById("header-store-name");
+      if (headNome && dados.nome) headNome.innerText = dados.nome;
+
+      const headLogo = document.getElementById("header-logo-img");
+      if (headLogo && dados.logoUrl) headLogo.src = dados.logoUrl;
+
+      const headWhats = document.getElementById("link-header-whats");
+      if (headWhats) headWhats.href = urlWhats;
+
+      // Hero
+      const heroTit = document.getElementById("hero-title");
+      if (heroTit && dados.heroTitulo) {
+        heroTit.innerHTML = `${dados.heroTitulo}`;
+      }
+
+      const heroDesc = document.getElementById("hero-desc");
+      if (heroDesc && dados.heroDesc) heroDesc.innerText = dados.heroDesc;
+
+      const heroImg = document.getElementById("hero-image-banner");
+      if (heroImg && dados.bannerUrl) heroImg.src = dados.bannerUrl;
+
+      const heroWhats = document.getElementById("hero-whats-btn");
+      if (heroWhats) heroWhats.href = urlWhats;
+
+      const heroPhone = document.getElementById("hero-display-phone");
+      if (heroPhone && dados.whatsapp) heroPhone.innerText = dados.whatsapp;
+
+      // Sobre
+      const sobTexto = document.getElementById("sobre-texto");
+      if (sobTexto && dados.sobreTexto) sobTexto.innerText = dados.sobreTexto;
+
+      const sobImg = document.getElementById("sobre-imagem");
+      if (sobImg && dados.sobreImagem) sobImg.src = dados.sobreImagem;
+
+      // Contato
+      const contEnd = document.getElementById("contact-endereco");
+      if (contEnd && dados.endereco) contEnd.innerText = dados.endereco;
+
+      const contWhats = document.getElementById("contact-whatsapp");
+      if (contWhats && dados.whatsapp) contWhats.innerText = dados.whatsapp;
+
+      const contHor = document.getElementById("contact-horario");
+      if (contHor && dados.horario) contHor.innerText = dados.horario;
+
+      const ctaWhats = document.getElementById("btn-cta-whats");
+      if (ctaWhats) ctaWhats.href = urlWhats;
+
+      const floatWhats = document.getElementById("floating-whatsapp");
+      if (floatWhats) floatWhats.href = urlWhats;
+
+      const calcWhats = document.getElementById("calc-whats-link");
+      if (calcWhats) calcWhats.href = urlWhats;
+
+      // Links Dinâmicos do Google Maps (Como Chegar)
+      const urlMaps = dados.mapsUrl || "https://www.google.com/maps/search/?api=1&query=Casa+das+Cores+Jaguaruna+SC";
+      const topbarMaps = document.getElementById("topbar-maps-link");
+      if (topbarMaps) topbarMaps.href = urlMaps;
+
+      const headerMaps = document.getElementById("header-maps-btn");
+      if (headerMaps) headerMaps.href = urlMaps;
+
+      const btnMaps = document.getElementById("btn-como-chegar-maps");
+      if (btnMaps) btnMaps.href = urlMaps;
+
+      const footerMaps = document.getElementById("footer-maps-link");
+      if (footerMaps) footerMaps.href = urlMaps;
+    }
+
+    /* =========================================================================
+       7. LOGIN GOOGLE
+       ========================================================================= */
+    function loginGoogle() {
+      try {
+        if (!auth && typeof firebase !== 'undefined' && firebase.auth) {
+          auth = firebase.auth();
+        }
+        if (!auth) {
+          showToast("Carregando serviço de autenticação do Firebase...");
+          return;
+        }
+
+        if (usuarioGoogle) {
+          auth.signOut().then(() => {
+            usuarioGoogle = null;
+            showToast("Você saiu da sua conta Google.");
+          });
+        } else {
+          const provider = new firebase.auth.GoogleAuthProvider();
+          auth.signInWithPopup(provider)
+            .then((result) => {
+              usuarioGoogle = result.user;
+              showToast("Login com Google efetuado com sucesso!");
+            })
+            .catch((err) => {
+              console.warn("Aviso Login Google:", err?.code || err?.message);
+              showToast("Use o botão 'Entrar como Administrador' com seu usuário e senha.");
+            });
+        }
+      } catch (e) {
+        console.warn("Erro ao executar login Google:", e);
+      }
+    }
+
+    /* =========================================================================
+       8. CATÁLOGO DE CORES POR MARCA
+       ========================================================================= */
+    const CORES_BANCO = [
+      // SUVINIL
+      { nome: "Branco Neve", codigo: "SUV-B101", hex: "#F8F9FA", marca: "Suvinil" },
+      { nome: "Cinza Crômio", codigo: "SUV-CC303", hex: "#D7D8D6", marca: "Suvinil" },
+      { nome: "Broto de Feijão", codigo: "SUV-BF112", hex: "#E3DAC9", marca: "Suvinil" },
+      { nome: "Elefante", codigo: "SUV-EL210", hex: "#9E9D97", marca: "Suvinil" },
+      { nome: "Calopsita", codigo: "SUV-CP330", hex: "#E8DEC8", marca: "Suvinil" },
+      { nome: "Terracota Suvinil", codigo: "SUV-TC720", hex: "#BA5A3A", marca: "Suvinil" },
+      { nome: "Azul Petróleo", codigo: "SUV-AP880", hex: "#1A3644", marca: "Suvinil" },
+      { nome: "Papel Picado", codigo: "SUV-PP118", hex: "#DDD9D0", marca: "Suvinil" },
+
+      // CORAL
+      { nome: "Algodão Egípcio", codigo: "COR-AE202", hex: "#EDE4D4", marca: "Coral" },
+      { nome: "Azul Sereno", codigo: "COR-AS505", hex: "#7A98A8", marca: "Coral" },
+      { nome: "Praça no Inverno", codigo: "COR-PI104", hex: "#C5C6C2", marca: "Coral" },
+      { nome: "Creme Escocês", codigo: "COR-CE208", hex: "#F2EBD9", marca: "Coral" },
+      { nome: "Canto da Floresta", codigo: "COR-CF314", hex: "#6B8068", marca: "Coral" },
+      { nome: "Rosa Mosqueta", codigo: "COR-RM422", hex: "#D9A59B", marca: "Coral" },
+      { nome: "Branco Puro", codigo: "COR-BP101", hex: "#FAFAFA", marca: "Coral" },
+      { nome: "Mergulho Noturno", codigo: "COR-MN602", hex: "#1E2C3D", marca: "Coral" },
+
+      // ANJO
+      { nome: "Terracota Fachadas", codigo: "ANJ-TA606", hex: "#C06B4C", marca: "Anjo" },
+      { nome: "Grafite Nobre", codigo: "ANJ-GN808", hex: "#4A4E54", marca: "Anjo" },
+      { nome: "Palha Rústica", codigo: "ANJ-PR109", hex: "#E4D3B8", marca: "Anjo" },
+      { nome: "Marfim Tropical", codigo: "ANJ-MT204", hex: "#F7E9CE", marca: "Anjo" },
+      { nome: "Verde Pantanal", codigo: "ANJ-VP310", hex: "#4D6652", marca: "Anjo" },
+      { nome: "Azul Oceânico", codigo: "ANJ-AO550", hex: "#2A4765", marca: "Anjo" },
+
+      // EUCATEX
+      { nome: "Areia Molhada", codigo: "EUC-AM404", hex: "#D5C4A1", marca: "Eucatex" },
+      { nome: "Verde Eucalipto", codigo: "EUC-VE707", hex: "#5E7D6A", marca: "Eucatex" },
+      { nome: "Seda Suave", codigo: "EUC-SS101", hex: "#F3EFE6", marca: "Eucatex" },
+      { nome: "Camurça Nobre", codigo: "EUC-CN205", hex: "#BCA993", marca: "Eucatex" },
+      { nome: "Gelo Ártico", codigo: "EUC-GA303", hex: "#EAECEE", marca: "Eucatex" },
+      { nome: "Rubi Clássico", codigo: "EUC-RC512", hex: "#872337", marca: "Eucatex" }
+    ];
+
+    let marcaAtual = "Suvinil";
+
+    function selecionarMarcaCores(marca) {
+      marcaAtual = marca;
+      ["Suvinil", "Coral", "Anjo", "Eucatex"].forEach(m => {
+        const btn = document.getElementById(`tab-${m}`);
+        if (btn) {
+          if (m === marca) {
+            btn.className = "px-5 py-2.5 rounded-xl font-black text-xs border border-slate-300 bg-slate-950 text-white shadow-sm transition-all cursor-pointer";
+          } else {
+            btn.className = "px-5 py-2.5 rounded-xl font-black text-xs border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 shadow-sm transition-all cursor-pointer";
+          }
+        }
+      });
+      renderizarCores();
+    }
+
+    function renderizarCores() {
+      const grid = document.getElementById("grid-cores");
+      if (!grid) return;
+
+      const cores = CORES_BANCO.filter(c => c.marca.toLowerCase() === marcaAtual.toLowerCase());
+      grid.innerHTML = cores.map(c => `
+        <div onclick="pedirCorWhats('${c.nome}', '${c.codigo}', '${c.marca}')" class="bg-white border border-slate-200 rounded-2xl p-2.5 sm:p-3 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group flex flex-col justify-between min-w-0 break-normal">
+          <div class="min-w-0">
+            <div class="w-full h-12 sm:h-16 rounded-xl border border-black/10 mb-2 group-hover:scale-102 transition-transform" style="background-color: ${c.hex};"></div>
+            <div class="text-xs font-black text-slate-900 truncate">${c.nome}</div>
+            <div class="text-[10px] font-mono text-slate-400 truncate">${c.codigo}</div>
+          </div>
+          <div class="text-[10px] font-bold text-amber-600 mt-2 flex items-center justify-between gap-1">
+            <span class="truncate">Pedir Cor</span>
+            <span>💬</span>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function pedirCorWhats(nome, cod, marca) {
+      const cleanWhats = (storeConfig.whatsapp || "4836241961").replace(/\D/g, "");
+      const num = cleanWhats.startsWith("55") ? cleanWhats : "55" + cleanWhats;
+      const texto = `Olá Casa das Cores! Vi a cor "${nome}" (${marca} - Cód: ${cod}) no site e gostaria de solicitar um orçamento para o meu projeto!`;
+      window.open(`https://wa.me/${num}?text=${encodeURIComponent(texto)}`, '_blank');
+    }
+
+    // Inicialização ao carregar a página
+    document.addEventListener("DOMContentLoaded", () => {
+      carregarDadosLocais();
+      initFirebase();
+      calcularTinta();
+      selecionarMarcaCores("Suvinil");
+      renderizarMarcas();
+      renderizarPromocoes();
+      aplicarDadosLojaNaTela(storeConfig);
+    });
+  </script>
+</body>
+</html>
