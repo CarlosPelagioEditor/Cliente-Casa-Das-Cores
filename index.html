@@ -4,65 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa das Cores - Tintas e Acabamentos</title>
-    <!-- Tailwind CSS para design moderno -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Firebase SDK v9 Compat -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-gray-100 text-gray-800 font-sans pb-12">
 
-    <!-- Cabeçalho -->
-    <header class="bg-amber-600 text-white shadow-md">
+    <!-- Cabeçalho Principal -->
+    <header class="bg-gradient-to-r from-amber-600 to-orange-500 text-white shadow-lg sticky top-0 z-40">
         <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-bold">Casa das Cores</h1>
-            <button id="auth-btn" onclick="toggleLogin()" class="bg-white text-amber-700 px-4 py-2 rounded-lg font-semibold text-sm shadow hover:bg-amber-50 transition">
-                Entrar / Proprietário
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid font-bold text-2xl fa-paint-roller"></i>
+                <h1 class="text-xl font-extrabold tracking-wide">Casa das Cores</h1>
+            </div>
+            <button id="auth-btn" onclick="toggleLogin()" class="bg-white text-amber-700 hover:bg-amber-50 px-4 py-2 rounded-full font-bold text-xs shadow-md transition-all flex items-center gap-2">
+                <i class="fa-brands fa-google"></i>
+                <span id="auth-btn-text">Entrar como Proprietário</span>
             </button>
         </div>
     </header>
 
-    <!-- Conteúdo Principal -->
-    <main class="max-w-4xl mx-auto px-4 py-8">
-        <div class="bg-white rounded-xl shadow-md p-6 text-center mb-8">
-            <h2 id="store-title" class="text-2xl font-bold mb-2">Bem-vindo à Casa das Cores</h2>
-            <p id="store-desc" class="text-gray-600 mb-6">Sua loja completa de tintas e acabamentos em Jaguaruna.</p>
-            
-            <div id="contact-buttons" class="flex flex-wrap justify-center gap-4">
-                <a id="btn-whatsapp" href="https://wa.me/5548999999999" target="_blank" class="bg-green-600 text-white px-6 py-3 rounded-xl font-semibold shadow hover:bg-green-700 transition">
-                    Chamar no WhatsApp
-                </a>
-            </div>
+    <!-- Banner / Boas-vindas -->
+    <section class="bg-amber-600 text-white py-8 px-4 text-center shadow-inner">
+        <div class="max-w-2xl mx-auto">
+            <h2 id="store-title" class="text-3xl font-black mb-2">Casa das Cores Jaguaruna</h2>
+            <p id="store-desc" class="text-amber-100 text-sm leading-relaxed">As melhores marcas de tintas, pincéis e materiais para pintura com o melhor preço da região.</p>
         </div>
+    </section>
 
-        <!-- Painel de Edição do Proprietário (Oculto por padrão) -->
-        <div id="admin-panel" class="hidden bg-amber-50 border border-amber-200 rounded-xl shadow-md p-6">
-            <h3 class="text-lg font-bold text-amber-900 mb-4">Painel de Controle do Proprietário</h3>
-            <form id="admin-form" onsubmit="saveData(event)" class="space-y-4">
+    <!-- Painel de Controle Flutuante do Proprietário (Aparece após o Login) -->
+    <section id="admin-panel" class="hidden max-w-4xl mx-auto px-4 -mt-4 mb-8">
+        <div class="bg-white border-2 border-amber-500 rounded-2xl shadow-2xl p-6">
+            <div class="flex justify-between items-center mb-4 border-b pb-3">
+                <div class="flex items-center space-x-2 text-amber-700">
+                    <i class="fa-solid fa-sliders text-xl"></i>
+                    <h3 class="font-bold text-lg">Painel de Edição em Tempo Real</h3>
+                </div>
+                <span id="user-email-tag" class="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-md font-semibold"></span>
+            </div>
+
+            <form onsubmit="saveData(event)" class="space-y-4">
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Título da Página</label>
-                    <input type="text" id="input-title" class="w-full border rounded-lg px-3 py-2" required>
+                    <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Título da Loja</label>
+                    <input type="text" id="input-title" class="w-full border-gray-300 border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Descrição</label>
-                    <textarea id="input-desc" class="w-full border rounded-lg px-3 py-2" rows="2" required></textarea>
+                    <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Descrição Comercial</label>
+                    <textarea id="input-desc" class="w-full border-gray-300 border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none" rows="2" required></textarea>
                 </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Número do WhatsApp (Ex: 55489...)</label>
-                    <input type="text" id="input-whatsapp" class="w-full border rounded-lg px-3 py-2" required>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-600 uppercase mb-1">WhatsApp (Apenas Números)</label>
+                        <input type="text" id="input-whatsapp" placeholder="5548999999999" class="w-full border-gray-300 border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none" required>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Endereço / Localização</label>
+                        <input type="text" id="input-address" placeholder="Rua Central, Jaguaruna - SC" class="w-full border-gray-300 border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none">
+                    </div>
                 </div>
-                <button type="submit" class="w-full bg-amber-600 text-white font-bold py-2 rounded-lg hover:bg-amber-700 transition">
-                    Salvar Alterações no Site
+
+                <button type="submit" id="btn-save" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-xl shadow-lg transition-all text-sm flex justify-center items-center gap-2">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    <span>Salvar Alterações no Site</span>
                 </button>
             </form>
         </div>
+    </section>
+
+    <!-- Botões de Contato e Ações Rápidas -->
+    <main class="max-w-4xl mx-auto px-4 mt-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a id="btn-whatsapp" href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white p-4 rounded-2xl shadow-md font-bold flex items-center justify-center space-x-3 transition-transform active:scale-95">
+                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                <span>Falar no WhatsApp</span>
+            </a>
+            <div id="card-address" class="bg-white p-4 rounded-2xl shadow-md font-semibold text-gray-700 flex items-center space-x-3 border">
+                <i class="fa-solid fa-location-dot text-amber-600 text-xl"></i>
+                <span id="display-address" class="text-sm">Jaguaruna - SC</span>
+            </div>
+        </div>
     </main>
 
-    <!-- Script de Inicialização e Lógica -->
+    <!-- Configuração e Lógica do Firebase -->
     <script>
-        // Configuração do Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyAJZ9w88QKJ9IkKwewwd1UhXXzo9lB-Qpg",
             authDomain: "cliente-casa-das-cores.firebaseapp.com",
@@ -73,7 +103,6 @@
             measurementId: "G-4ETFJ8CM6L"
         };
 
-        // Inicializa o Firebase com segurança
         if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
         }
@@ -81,43 +110,43 @@
         const auth = firebase.auth();
         const db = firebase.firestore();
 
-        // E-mail autorizado do proprietário
-        const ADMIN_EMAIL = "casadascoresjaguarunaadm@gmail.com";
+        // Tratamento do resultado de login por redirecionamento
+        auth.getRedirectResult().catch((error) => {
+            console.error("Erro no login:", error);
+        });
 
         function toggleLogin() {
             const user = auth.currentUser;
             if (user) {
                 auth.signOut().then(() => {
-                    alert("Você saiu da conta.");
+                    alert("Sessão encerrada com sucesso.");
                 });
             } else {
                 const provider = new firebase.auth.GoogleAuthProvider();
-                auth.signInWithPopup(provider).catch((error) => {
-                    alert("Erro no login: " + error.message);
-                });
+                // Usa Redirect em telemóveis para evitar bloqueio de popup
+                auth.signInWithRedirect(provider);
             }
         }
 
-        // Monitora estado da autenticação
+        // Monitoriza a sessão do utilizador
         auth.onAuthStateChanged((user) => {
-            const btn = document.getElementById('auth-btn');
+            const btnText = document.getElementById('auth-btn-text');
             const panel = document.getElementById('admin-panel');
+            const userTag = document.getElementById('user-email-tag');
 
-            if (user && user.email === ADMIN_EMAIL) {
-                btn.textContent = "Sair (Proprietário)";
+            if (user) {
+                // Permite login e edição para a conta conectada
+                btnText.textContent = "Sair";
+                userTag.textContent = user.email;
                 panel.classList.remove('hidden');
                 loadAdminData();
             } else {
-                if (user) {
-                    alert("Este e-mail (" + user.email + ") não tem permissão de administrador.");
-                    auth.signOut();
-                }
-                btn.textContent = "Entrar / Proprietário";
+                btnText.textContent = "Entrar como Proprietário";
                 panel.classList.add('hidden');
             }
         });
 
-        // Carregar Dados do Firestore
+        // Atualização em Tempo Real (Firestore -> Site)
         db.collection("configuracoes").doc("loja").onSnapshot((doc) => {
             if (doc.exists) {
                 const data = doc.data();
@@ -125,6 +154,9 @@
                 if(data.desc) document.getElementById('store-desc').textContent = data.desc;
                 if(data.whatsapp) {
                     document.getElementById('btn-whatsapp').href = `https://wa.me/${data.whatsapp}`;
+                }
+                if(data.address) {
+                    document.getElementById('display-address').textContent = data.address;
                 }
             }
         });
@@ -136,22 +168,32 @@
                     document.getElementById('input-title').value = data.title || '';
                     document.getElementById('input-desc').value = data.desc || '';
                     document.getElementById('input-whatsapp').value = data.whatsapp || '';
+                    document.getElementById('input-address').value = data.address || '';
                 }
             });
         }
 
         function saveData(e) {
             e.preventDefault();
+            const btnSave = document.getElementById('btn-save');
+            btnSave.disabled = true;
+            btnSave.innerText = "A salvar...";
+
             const title = document.getElementById('input-title').value;
             const desc = document.getElementById('input-desc').value;
             const whatsapp = document.getElementById('input-whatsapp').value;
+            const address = document.getElementById('input-address').value;
 
             db.collection("configuracoes").doc("loja").set({
-                title, desc, whatsapp
+                title, desc, whatsapp, address
             }, { merge: true }).then(() => {
-                alert("Dados salvos com sucesso no banco de dados!");
+                alert("Alterações salvas e atualizadas no site!");
+                btnSave.disabled = false;
+                btnSave.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> <span>Salvar Alterações no Site</span>';
             }).catch((error) => {
                 alert("Erro ao salvar: " + error.message);
+                btnSave.disabled = false;
+                btnSave.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> <span>Salvar Alterações no Site</span>';
             });
         }
     </script>
