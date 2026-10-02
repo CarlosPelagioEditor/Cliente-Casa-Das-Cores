@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Casa das Cores - Tintas e Acabamentos em Jaguaruna</title>
-  <meta name="description" content="Site oficial da Casa das Cores em Jaguaruna - SC. Tintas imobiliÃ¡rias, vernizes, texturas, impermeabilizantes e acessÃ³rios das marcas Suvinil, Coral, Anjo e Eucatex com o melhor preÃ§o e orÃ§amento via WhatsApp.">
+  <meta name="description" content="Site oficial da Casa das Cores em Jaguaruna - SC. Tintas imobiliárias, vernizes, texturas, impermeabilizantes e acessórios das marcas Suvinil, Coral, Anjo e Eucatex com o melhor preço e orçamento via WhatsApp.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta property="og:title" content="Casa das Cores - Tintas e Acabamentos em Jaguaruna">
-  <meta property="og:description" content="O melhor e mais barato para vocÃª em tintas e acabamentos. Suvinil, Coral, Anjo, Eucatex e muito mais.">
+  <meta property="og:description" content="O melhor e mais barato para você em tintas e acabamentos. Suvinil, Coral, Anjo, Eucatex e muito mais.">
   <meta property="og:type" content="website">
 
-  <!-- Escudo defensivo global contra erros de serializaÃ§Ã£o de terceiros e avisos de conectividade -->
+  <!-- Escudo defensivo global contra erros de serialização de terceiros e avisos de conectividade -->
   <script>
     (function() {
       var _orig = JSON.stringify;
@@ -141,6 +141,7 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
   <script>
     try {
       if (typeof firebase !== 'undefined' && firebase.firestore && firebase.firestore.setLogLevel) {
@@ -160,14 +161,17 @@
     html {
       scroll-behavior: smooth;
     }
-    /* UtilitÃ¡rios globais de contenÃ§Ã£o e responsividade anti-estouramento */
-    .overflow-wrap-break-word {
-      overflow-wrap: break-word;
-      word-break: break-word;
+    /* Estilização e Quebra Natural de Linha (Sem Cortar Palavras) */
+    * {
+      word-break: normal;
+      overflow-wrap: normal;
     }
-    .hyphens-auto {
-      hyphens: auto;
-      -webkit-hyphens: auto;
+    .break-normal {
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+    .keep-all {
+      word-break: keep-all;
     }
     .no-scrollbar::-webkit-scrollbar {
       display: none;
@@ -176,35 +180,53 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+
+    /* Detalhes Visuais com Pinceladas e Respingos de Tinta (Paint Strokes) */
+    .brush-stroke-yellow {
+      background: linear-gradient(120deg, rgba(245, 158, 11, 0.25) 0%, rgba(251, 191, 36, 0.4) 100%);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    }
+    .brush-card {
+      border-radius: 24px 20px 28px 18px;
+    }
+    .paint-splatter {
+      background-image: radial-gradient(#d97706 1px, transparent 1px), radial-gradient(#ef4444 1.2px, transparent 1.2px), radial-gradient(#2563eb 1px, transparent 1px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px, 8px 24px;
+      opacity: 0.08;
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen">
 
   <!-- =========================================================================
-       TOAST DE NOTIFICAÃ‡ÃƒO
+       TOAST DE NOTIFICAÇÃO
        ========================================================================= -->
   <div id="toast" class="fixed top-5 right-5 z-50 hidden bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl border-l-4 border-amber-500 text-sm font-bold transition-all transform animate-bounce">
     Mensagem de status
   </div>
 
   <!-- =========================================================================
-       1. TOPBAR INFORMATIVA & BOTÃ•ES DE ACESSO
+       1. TOPBAR INFORMATIVA & BOTÕES DE ACESSO
        ========================================================================= -->
   <div class="bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-slate-950 py-1.5 px-3 sm:px-4 text-xs font-bold border-b border-amber-400 w-full overflow-hidden">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 w-full">
       <div class="flex items-center gap-2 flex-wrap justify-center sm:justify-start min-w-0 text-center sm:text-left">
         <span class="bg-slate-950 text-amber-300 text-[10px] px-2.5 py-0.5 rounded-full font-black tracking-wide shrink-0">
-          ðŸ“ JAGUARUNA - SC
+          📍 JAGUARUNA - SC
         </span>
-        <span id="topbar-endereco" class="break-words overflow-wrap-break-word font-semibold text-[11px] sm:text-xs">
+        <span id="topbar-endereco" class="break-normal keep-all font-semibold text-[11px] sm:text-xs">
           Rua Arno Silveira, 185 - Centro, Jaguaruna - SC
         </span>
-        <span class="hidden md:inline text-slate-900">â€¢ <span id="topbar-horario">Seg a Sex: 08h Ã s 18h | SÃ¡b: 08h Ã s 12h</span></span>
+        <span class="hidden md:inline text-slate-900">• <span id="topbar-horario">Seg a Sex: 08h às 18h | Sáb: 08h às 12h</span></span>
+        <a id="topbar-maps-link" href="https://www.google.com/maps/search/?api=1&query=Casa+das+Cores+Jaguaruna+SC" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1 bg-slate-950/90 text-amber-300 hover:text-white px-2 py-0.5 rounded-full font-bold text-[10px] transition-colors ml-1">
+          📍 <span>Como Chegar</span>
+        </a>
       </div>
 
       <div class="flex items-center gap-2 flex-wrap justify-center shrink-0">
-        <!-- BotÃ£o Entrar com Google -->
-        <button id="btn-google-login" onclick="loginGoogle()" class="inline-flex items-center gap-1.5 bg-white/95 hover:bg-white text-slate-900 text-[10px] sm:text-[11px] font-extrabold px-2.5 sm:px-3 py-1 rounded-full shadow-sm border border-black/10 transition-transform active:scale-95 cursor-pointer">
+        <!-- Botão Entrar com Google -->
+        <button id="btn-google-login" onclick="loginGoogle()" type="button" class="inline-flex items-center gap-1.5 bg-white/95 hover:bg-white text-slate-900 text-[10px] sm:text-[11px] font-extrabold px-2.5 sm:px-3 py-1 rounded-full shadow-sm border border-black/10 transition-transform active:scale-95 cursor-pointer">
           <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24">
             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
             <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -214,8 +236,8 @@
           <span id="google-login-text" class="truncate max-w-[130px] sm:max-w-none">Entrar com o Google</span>
         </button>
 
-        <!-- BotÃ£o Entrar como Administrador -->
-        <button id="btn-admin-pencil" onclick="abrirModalAdmin()" title="Acesso Restrito / Entrar como Administrador" class="inline-flex items-center gap-1.5 bg-slate-950 hover:bg-slate-900 text-amber-400 hover:text-amber-300 text-[10px] sm:text-[11px] font-black px-3 py-1 rounded-full shadow-md transition-all active:scale-95 cursor-pointer border border-amber-400/40">
+        <!-- Botão Entrar como Administrador -->
+        <button id="btn-admin-pencil" onclick="abrirModalAdmin()" type="button" title="Acesso Restrito / Entrar como Administrador" class="inline-flex items-center gap-1.5 bg-slate-950 hover:bg-slate-900 text-amber-400 hover:text-amber-300 text-[10px] sm:text-[11px] font-black px-3 py-1 rounded-full shadow-md transition-all active:scale-95 cursor-pointer border border-amber-400/40">
           <svg class="w-3.5 h-3.5 text-amber-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
           </svg>
@@ -226,7 +248,7 @@
   </div>
 
   <!-- =========================================================================
-       2. HEADER E NAVEGAÃ‡ÃƒO PRINCIPAL
+       2. HEADER E NAVEGAÇÃO PRINCIPAL
        ========================================================================= -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
@@ -241,29 +263,33 @@
               Casa das Cores
             </span>
             <span id="header-store-subtitle" class="text-[10px] sm:text-xs font-extrabold text-red-600 tracking-wider uppercase mt-1 truncate">
-              Tintas & Acabamentos â€¢ Jaguaruna
+              Tintas & Acabamentos • Jaguaruna
             </span>
           </div>
         </a>
 
-        <!-- Links de NavegaÃ§Ã£o Desktop -->
+        <!-- Links de Navegação Desktop -->
         <nav class="hidden lg:flex items-center space-x-1">
-          <a href="#hero" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 hover:bg-amber-50">InÃ­cio</a>
-          <a href="#ofertas" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 hover:bg-amber-50">ðŸ”¥ Ofertas</a>
-          <a href="#marcas" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 hover:bg-amber-50">Marcas</a>
+          <a href="#hero" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 hover:bg-amber-50">Início</a>
+          <a href="#marcas" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 hover:bg-amber-50">🏷️ Marcas</a>
+          <a href="#ofertas" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 hover:bg-amber-50">🔥 Ofertas</a>
+          <a href="#guia-tintas" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 hover:bg-amber-50">💡 Guia de Tintas</a>
           <a href="#calculadora" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 hover:bg-amber-50">Calculadora</a>
-          <a href="#cores" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 hover:bg-amber-50">Simulador de Cores</a>
-          <a href="#sobre" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 hover:bg-amber-50">Sobre NÃ³s</a>
+          <a href="#cores" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 hover:bg-amber-50">Cores</a>
+          <a href="#sobre" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 hover:bg-amber-50">Sobre</a>
           <a href="#localizacao" class="px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-950 hover:bg-amber-50">Contato</a>
         </nav>
 
-        <!-- AÃ§Ãµes do CabeÃ§alho -->
-        <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <!-- Ações do Cabeçalho -->
+        <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+          <a id="header-maps-btn" href="https://www.google.com/maps/search/?api=1&query=Casa+das+Cores+Jaguaruna+SC" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-2 rounded-xl border border-blue-200 bg-blue-50 hover:bg-blue-100 text-blue-900 text-xs font-bold transition-colors cursor-pointer" title="Abrir Google Maps">
+            📍 <span class="hidden md:inline">Como Chegar</span>
+          </a>
           <button onclick="abrirModalAdmin()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-900 text-xs font-bold transition-colors cursor-pointer">
-            âš™ï¸ <span>Painel do ProprietÃ¡rio</span>
+            ⚙️ <span>Painel</span>
           </button>
           <a id="link-header-whats" href="https://wa.me/554836241961" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-extrabold text-[11px] sm:text-xs px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-md hover:shadow-emerald-500/25 transition-all">
-            ðŸ’¬ <span class="hidden xs:inline">Pedir OrÃ§amento</span><span class="xs:hidden">WhatsApp</span>
+            💬 <span class="hidden xs:inline">Pedir Orçamento</span><span class="xs:hidden">WhatsApp</span>
           </a>
         </div>
       </div>
@@ -279,38 +305,38 @@
         <!-- Coluna Esquerda -->
         <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left min-w-0">
           <div class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 px-3.5 sm:px-4 py-1.5 rounded-full font-black text-[11px] sm:text-xs tracking-wide shadow-xs border border-amber-300 max-w-full">
-            <span id="hero-badge-text" class="truncate">â­ O MELHOR E MAIS BARATO PARA VOCÃŠ</span>
+            <span id="hero-badge-text" class="truncate">⭐ O MELHOR E MAIS BARATO PARA VOCÊ</span>
           </div>
 
-          <h1 id="hero-title" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-heading text-slate-950 tracking-tight leading-[1.15] break-words overflow-wrap-break-word hyphens-auto">
+          <h1 id="hero-title" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-heading text-slate-950 tracking-tight leading-[1.15] break-normal keep-all">
             Tudo em <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-amber-600 to-orange-600">Tintas & Acabamentos</span> para sua Obra.
           </h1>
 
-          <p id="hero-desc" class="text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto lg:mx-0 break-words overflow-wrap-break-word">
-            A Casa das Cores Ã© a sua parceira completa em Jaguaruna - SC. Oferecemos as melhores marcas com preÃ§os imbatÃ­veis, atendimento qualificado, estacionamento prÃ³prio amplo e sistema tintomÃ©trico na hora.
+          <p id="hero-desc" class="text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto lg:mx-0 break-normal">
+            A Casa das Cores é a sua parceira completa em Jaguaruna - SC. Oferecemos as melhores marcas com preços imbatíveis, atendimento qualificado, estacionamento próprio amplo e sistema tintométrico na hora.
           </p>
 
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 pt-2 w-full">
             <a id="hero-whats-btn" href="https://wa.me/554836241961" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-black text-sm sm:text-base px-6 py-3.5 sm:py-4 rounded-2xl shadow-xl hover:shadow-emerald-500/30 transition-all cursor-pointer text-center">
-              ðŸ’¬ <span>Falar no WhatsApp da Loja</span>
+              💬 <span>Falar no WhatsApp da Loja</span>
             </a>
             <a href="#calculadora" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-800 font-extrabold text-xs sm:text-sm px-5 py-3.5 sm:py-4 rounded-2xl border-2 border-slate-300 hover:border-amber-500 shadow-xs transition-all text-center">
-              ðŸ§® <span>Calcular Quantidade de Tinta</span>
+              🧮 <span>Calcular Quantidade de Tinta</span>
             </a>
           </div>
 
           <div class="pt-2 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2.5 max-w-xl mx-auto lg:mx-0 text-left w-full">
             <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white/90 border border-slate-200 shadow-2xs min-w-0">
-              <span class="text-lg shrink-0">ðŸš—</span>
-              <span class="text-xs font-bold text-slate-800 truncate">Estacionamento PrÃ³prio</span>
+              <span class="text-lg shrink-0">🚗</span>
+              <span class="text-xs font-bold text-slate-800 truncate">Estacionamento Próprio</span>
             </div>
             <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white/90 border border-slate-200 shadow-2xs min-w-0">
-              <span class="text-lg shrink-0">ðŸŽ¨</span>
-              <span class="text-xs font-bold text-slate-800 truncate">Sistema TintomÃ©trico</span>
+              <span class="text-lg shrink-0">🎨</span>
+              <span class="text-xs font-bold text-slate-800 truncate">Sistema Tintométrico</span>
             </div>
             <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white/90 border border-slate-200 shadow-2xs min-w-0 xs:col-span-2 sm:col-span-1">
-              <span class="text-lg shrink-0">ðŸšš</span>
-              <span class="text-xs font-bold text-slate-800 truncate">Entrega RÃ¡pida</span>
+              <span class="text-lg shrink-0">🚚</span>
+              <span class="text-xs font-bold text-slate-800 truncate">Entrega Rápida</span>
             </div>
           </div>
         </div>
@@ -322,37 +348,4 @@
               <img id="hero-image-banner" src="/IMG-20260930-WA0016.svg" onerror="this.src='/favicon.svg'" alt="Selo Oficial Casa das Cores" class="w-full h-full object-contain">
             </div>
 
-            <div class="inline-flex items-center gap-1.5 bg-amber-500 text-slate-950 text-[11px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-xs mb-2 max-w-full truncate">
-              ðŸ“ Jaguaruna - Santa Catarina
-            </div>
-
-            <h3 id="hero-card-store-name" class="text-xl sm:text-2xl font-black font-heading text-slate-950 leading-tight break-words">
-              Casa das Cores
-            </h3>
-            <p id="hero-card-slogan" class="text-xs font-bold text-amber-900 uppercase tracking-wide mt-1 break-words">
-              O Melhor e Mais Barato para VocÃª
-            </p>
-
-            <div class="w-full my-3 sm:my-4 py-2.5 px-3 rounded-xl bg-slate-50 border border-slate-200 text-left min-w-0">
-              <div class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase">WhatsApp & Fone:</div>
-              <div id="hero-display-phone" class="text-xs sm:text-sm font-black text-slate-900 break-words">
-                (48) 3624-1961
-              </div>
-            </div>
-
-            <a href="#ofertas" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs transition-colors text-center">
-              Ver Ofertas da Semana ðŸ‘‡
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       4. SEÃ‡ÃƒO DE PROMOÃ‡Ã•ES E OFERTAS (DINÃ‚MICA VIA FIRESTORE)
-       ========================================================================= -->
-  <section id="ofertas" class="py-16 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-xs font-bl
+            <div class="inline-flex items-center gap-1.5 bg-amber-500 text-slate-950 text-[11px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-xs m
