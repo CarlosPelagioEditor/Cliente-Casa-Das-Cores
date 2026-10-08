@@ -69,9 +69,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Firebase Web SDK v9 Compat via CDN (Auth e Firestore 100% gratuitos - SEM STORAGE) -->
+  <!-- Firebase Web SDK v9 Compat via CDN (Firestore 100% gratuito - SEM STORAGE / SEM AUTH EXTERNO DESNECESSÁRIO) -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
   <style>
@@ -194,7 +193,7 @@
   </header>
 
   <!-- MENU LATERAL RESPONSIVO (DRAWER / 3 RISCOS) -->
-  <div id="drawer-menu-overlay" onclick="toggleMenuDrawer()" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-xs hidden transition-opacity"></div>
+  <div id="drawer-menu-overlay" onclick="toggleMenuDrawer()" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm hidden transition-opacity"></div>
   <aside id="drawer-menu" class="fixed top-0 right-0 z-50 w-full max-w-sm h-full bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out border-l border-slate-200">
     <div class="p-5 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-slate-950 flex items-center justify-between border-b border-amber-400">
       <div class="flex items-center gap-2.5">
@@ -451,7 +450,7 @@
             </select>
 
             <!-- Seletor de Tom + Input de Código Hexadecimal -->
-            <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-white border border-slate-300 rounded-xl text-xs font-bold text-slate-700 shadow-2xs hover:border-amber-400 transition-colors">
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-white border border-slate-300 rounded-xl text-xs font-bold text-slate-700 shadow-xs hover:border-amber-400 transition-colors">
               <label class="flex items-center gap-1 cursor-pointer" title="Clique para escolher no seletor de tom">
                 <span class="text-sm">🎨</span>
                 <input type="color" id="sim-custom-color-picker" value="#D7D8D6" oninput="atualizarCorPorPicker(this.value)" onchange="atualizarCorPorPicker(this.value)" class="w-6 h-6 rounded cursor-pointer border-0 p-0 bg-transparent">
@@ -819,7 +818,7 @@
   <!-- =========================================================================
        MODAL DE LOGIN ADM COM PLACEHOLDERS SEGUROS E DISCRETOS (SEM REVELAR SENHA)
        ========================================================================= -->
-  <div id="modal-login-admin" class="fixed inset-0 z-50 hidden bg-slate-950/75 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+  <div id="modal-login-admin" class="fixed inset-0 z-50 hidden bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
     <div class="relative w-full max-w-md my-auto bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
       <div class="bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 p-5 text-slate-950 relative">
         <button onclick="fecharModalAdmin()" type="button" class="absolute top-4 right-4 p-1.5 rounded-full bg-black/10 hover:bg-black/20 text-slate-900 cursor-pointer">✕</button>
@@ -864,7 +863,7 @@
   </div>
 
   <!-- PAINEL ADMINISTRATIVO COM UPLOAD BASE64 CANVAS (100% GRATUITO) -->
-  <div id="painel-proprietario" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
+  <div id="painel-proprietario" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
     <div class="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[92vh] my-auto">
       <div class="bg-slate-900 text-white p-4 flex items-center justify-between border-b border-slate-800 shrink-0">
         <div class="flex items-center gap-3">
@@ -1035,14 +1034,14 @@
                   <label class="block text-[11px] font-bold text-slate-700 mb-0.5">Tipo/Linha da Tinta (Obrigatório):</label>
                   <input type="text" id="prod-tipo-tinta" list="lista-sugestoes-tipos-tinta" placeholder="Ex: Tinta Acrílica Premium" class="w-full px-3 py-1.5 rounded-xl border border-amber-300 text-xs font-semibold bg-white">
                   <datalist id="lista-sugestoes-tipos-tinta">
-                    <option value="Tinta Acrílica Premium (Interior/Exterior)">
-                    <option value="Tinta Acrílica Standard">
-                    <option value="Tinta Econômica para Interiores">
-                    <option value="Tinta Emborrachada Fachadas (Impermeável)">
-                    <option value="Esmalte Sintético (Madeiras e Metais)">
-                    <option value="Tinta para Gesso & Teto Direto">
-                    <option value="Tinta Piso Alta Resistência">
-                    <option value="Verniz e Stain Protetor">
+                    <option value="Tinta Acrílica Premium (Interior/Exterior)"></option>
+                    <option value="Tinta Acrílica Standard"></option>
+                    <option value="Tinta Econômica para Interiores"></option>
+                    <option value="Tinta Emborrachada Fachadas (Impermeável)"></option>
+                    <option value="Esmalte Sintético (Madeiras e Metais)"></option>
+                    <option value="Tinta para Gesso & Teto Direto"></option>
+                    <option value="Tinta Piso Alta Resistência"></option>
+                    <option value="Verniz e Stain Protetor"></option>
                   </datalist>
                 </div>
                 <div>
@@ -1200,11 +1199,16 @@
       measurementId: "G-4ETFJ8CM6L"
     };
 
-    let auth = null;
     let db = null;
-    let usuarioGoogle = null;
     let adminAutenticado = false;
     let adminEmailRecuperacao = "criadordesites3006@gmail.com";
+
+    /* HELPER DE URL DO WHATSAPP OFICIAL */
+    function getWhatsAppUrl(msg = "") {
+      const cleanW = (storeConfig.whatsapp || "4836241961").replace(/\D/g, "");
+      const numW = cleanW.startsWith("55") ? cleanW : "55" + cleanW;
+      return "https://wa.me/" + numW + (msg ? "?text=" + encodeURIComponent(msg) : "");
+    }
 
     let configCalculadora = {
       rendimentoPadrao: 10,
@@ -1442,7 +1446,7 @@
 
       grid.innerHTML = cores.map(c => `
         <button onclick="aplicarCorSimulador('${c.hex}', '${c.nome}', '${c.cod}', '${c.marca}', ${c.opacity})" class="group p-2 bg-white rounded-2xl border border-slate-200 hover:border-amber-500 hover:shadow-md transition-all text-left flex items-center gap-2 cursor-pointer">
-          <span class="w-7 h-7 rounded-xl border border-black/10 shrink-0 group-hover:scale-110 transition-transform shadow-2xs" style="background-color: ${c.hex};"></span>
+          <span class="w-7 h-7 rounded-xl border border-black/10 shrink-0 group-hover:scale-110 transition-transform shadow-xs" style="background-color: ${c.hex};"></span>
           <div class="min-w-0">
             <div class="text-[11px] font-black text-slate-900 truncate">${c.nome}</div>
             <div class="text-[9px] font-mono text-slate-400 truncate">${c.marca} • ${c.cod}</div>
@@ -1510,7 +1514,6 @@
       try {
         if (typeof firebase !== 'undefined' && firebase.initializeApp) {
           if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
-          auth = firebase.auth();
           db = firebase.firestore();
 
           db.collection("configuracoes").doc("loja").onSnapshot(d => {
@@ -1655,7 +1658,7 @@
                 ${p.foto ? `<img src="${p.foto}" alt="${p.nome}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform">` : `<span class="text-4xl text-amber-500">🎨</span>`}
                 <span class="absolute top-2 left-2 bg-slate-950/80 text-amber-300 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">${p.cat || 'Geral'}</span>
                 ${p.linha ? `<span class="absolute top-2 right-2 bg-amber-100 text-amber-900 border border-amber-300 text-[9px] font-bold px-2 py-0.5 rounded-full">${p.linha}</span>` : ''}
-                ${p.cat === 'Tintas' && p.tipoTinta ? `<span class="absolute bottom-2 left-2 right-2 bg-slate-900/90 text-amber-300 text-[9px] font-bold px-2 py-0.5 rounded-lg truncate text-center backdrop-blur-xs">🎨 ${p.tipoTinta}${p.rendimento ? ` (${p.rendimento} m²/L)` : ''}</span>` : ''}
+                ${p.cat === 'Tintas' && p.tipoTinta ? `<span class="absolute bottom-2 left-2 right-2 bg-slate-900/90 text-amber-300 text-[9px] font-bold px-2 py-0.5 rounded-lg truncate text-center backdrop-blur-sm">🎨 ${p.tipoTinta}${p.rendimento ? ` (${p.rendimento} m²/L)` : ''}</span>` : ''}
               </div>
 
               <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
@@ -1713,7 +1716,7 @@
           emailDestino: adminEmailRecuperacao
         }).catch(() => {});
       }
-      alert("As instruções de redefinição foram encaminhadas para o e-mail oficial cadastrado: " + adminEmailRecuperacao);
+      showToast("Instruções de redefinição encaminhadas para: " + adminEmailRecuperacao);
     }
 
     /* PAINEL PROPRIETÁRIO COM GESTÃO TOTAL */
@@ -1833,9 +1836,13 @@
       const desc = document.getElementById("prod-desc").value.trim();
       const foto = document.getElementById("prod-foto").value.trim();
 
-      if (!nome) return alert("Informe o nome do produto.");
+      if (!nome) {
+        showToast("Informe o nome do produto.");
+        return;
+      }
       if (cat === "Tintas" && !tipoTinta) {
-        return alert("Para produtos da categoria Tintas, o campo 'Tipo/Linha da Tinta' é obrigatório.");
+        showToast("Para produtos da categoria Tintas, o campo 'Tipo/Linha da Tinta' é obrigatório.");
+        return;
       }
 
       const prodData = {
@@ -1997,7 +2004,10 @@
       const rendimento = parseFloat(document.getElementById("tipo-tinta-rendimento").value) || 10;
       const demaos = parseInt(document.getElementById("tipo-tinta-demaos").value) || 2;
 
-      if (!nome) return alert("Informe o nome do tipo de tinta.");
+      if (!nome) {
+        showToast("Informe o nome do tipo de tinta.");
+        return;
+      }
 
       if (!configCalculadora.tiposTinta) configCalculadora.tiposTinta = [];
 
@@ -2045,7 +2055,8 @@
       configCalculadora.demaosPadrao = parseInt(document.getElementById("calc-cfg-demaos").value) || 2;
       salvarLocal("configCalculadora", configCalculadora);
       if (db) db.collection("configuracoes").doc("calculadora").set(configCalculadora, { merge: true }).catch(() => {});
-      document.getElementById("calc-formula-tag").innerText = `${configCalculadora.rendimentoPadrao} m²/L`;
+      const formulaTag = document.getElementById("calc-formula-tag");
+      if (formulaTag) formulaTag.innerText = `${configCalculadora.rendimentoPadrao} m²/L`;
       atualizarDropdownTiposTinta();
       calcularTinta();
       showToast("Parâmetros da Calculadora salvos no Firestore!");
@@ -2056,8 +2067,8 @@
       const c = document.getElementById("container-marcas");
       if (!c) return;
       c.innerHTML = listaMarcas.map(m => `
-        <div onclick="window.open('https://wa.me/554836241961?text=' + encodeURIComponent('Olá! Gostaria de consultar os produtos da marca ' + '${m.nome}'), '_blank')" class="bg-white p-5 rounded-3xl border-2 border-slate-200 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all flex flex-col items-center text-center justify-between brush-card cursor-pointer group">
-          <div class="w-16 h-16 mb-3 rounded-2xl bg-amber-50 flex items-center justify-center p-2 group-hover:scale-105 transition-transform overflow-hidden shadow-2xs">
+        <a href="${getWhatsAppUrl('Olá! Gostaria de consultar os produtos da marca ' + m.nome)}" target="_blank" rel="noopener noreferrer" class="bg-white p-5 rounded-3xl border-2 border-slate-200 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all flex flex-col items-center text-center justify-between brush-card cursor-pointer group">
+          <div class="w-16 h-16 mb-3 rounded-2xl bg-amber-50 flex items-center justify-center p-2 group-hover:scale-105 transition-transform overflow-hidden shadow-xs">
             ${m.logo ? `<img src="${m.logo}" alt="${m.nome}" class="max-h-full max-w-full object-contain">` : `<span class="text-3xl">🎨</span>`}
           </div>
           <div>
@@ -2066,7 +2077,7 @@
             <p class="text-xs text-slate-600 mt-0.5 line-clamp-2">${m.desc || 'Linha Completa de Tintas'}</p>
           </div>
           <div class="mt-4 pt-2 border-t border-slate-100 text-xs font-black text-amber-700">Consultar Linha 💬</div>
-        </div>
+        </a>
       `).join("");
     }
 
@@ -2078,14 +2089,14 @@
           <div>
             ${p.imagem ? `<div class="w-full h-36 mb-3 rounded-2xl overflow-hidden bg-white border border-slate-200 flex items-center justify-center p-2"><img src="${p.imagem}" alt="${p.titulo}" class="max-h-full max-w-full object-contain"></div>` : ''}
             <span class="bg-red-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Oferta da Semana</span>
-            <h3 class="text-base font-black font-heading text-slate-900 mt-2 mb-1">${p.titulo}</h3>
+            <h3 class="text-base font-black font-heading text-slate-950 mt-2 mb-1">${p.titulo}</h3>
             <p class="text-xs text-slate-600 mb-3">${p.desc || ''}</p>
             <div class="mb-4">
               ${p.precoAntigo ? `<span class="text-xs text-slate-400 line-through">De R$ ${p.precoAntigo}</span>` : ''}
               <div class="text-2xl font-black text-emerald-600">R$ ${p.precoNovo}</div>
             </div>
           </div>
-          <a href="https://wa.me/554836241961?text=${encodeURIComponent('Olá! Gostaria de reservar a oferta: ' + p.titulo)}" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black rounded-xl text-center shadow-xs transition-colors">
+          <a href="${getWhatsAppUrl('Olá! Gostaria de reservar a oferta: ' + p.titulo)}" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black rounded-xl text-center shadow-xs transition-colors">
             Garantir no WhatsApp 💬
           </a>
         </div>
@@ -2119,7 +2130,10 @@
     function salvarMarca() {
       const nome = document.getElementById("marca-nome").value.trim();
       const logo = document.getElementById("marca-logo").value.trim();
-      if (!nome) return alert("Informe o nome da marca.");
+      if (!nome) {
+        showToast("Informe o nome da marca.");
+        return;
+      }
       const item = { id: "m-" + Date.now(), nome, logo, desc: "Linha Oficial" };
       listaMarcas.push(item);
       salvarLocal("listaMarcas", listaMarcas);
@@ -2145,7 +2159,10 @@
       const imagem = document.getElementById("promo-imagem").value.trim();
       const precoAntigo = document.getElementById("promo-preco-antigo").value.trim();
       const precoNovo = document.getElementById("promo-preco-novo").value.trim();
-      if (!titulo || !precoNovo) return alert("Preencha título e preço.");
+      if (!titulo || !precoNovo) {
+        showToast("Preencha título e preço da promoção.");
+        return;
+      }
       const item = { id: "p-" + Date.now(), titulo, imagem, precoAntigo, precoNovo, desc: "Oferta especial" };
       listaPromocoes.push(item);
       salvarLocal("listaPromocoes", listaPromocoes);
